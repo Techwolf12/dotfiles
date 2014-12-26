@@ -7,8 +7,6 @@ ORIGINAL_ZSHRC=$HOME/.zshrc
 ORIGINAL_DIRCOLORS=$HOME/.dircolors
 ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_GITCONFIG=$HOME/.gitconfig
-ORIGINAL_VIMRC=$HOME/.vimrc
-ORIGINAL_GNOME_TERMINAL=$HOME/.gconf/apps/gnome-terminal
 ORIGINAL_FONTS=$HOME/.fonts
 PACKAGES=(
     vim git tig tree htop synapse zsh google-chrome-stable gparted audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
@@ -22,8 +20,6 @@ $ORIGINAL_ZSHRC \
 $ORIGINAL_DIRCOLORS \
 $ORIGINAL_PROFILE \
 $ORIGINAL_GITCONFIG \
-$ORIGINAL_VIMRC \
-$ORIGINAL_GNOME_TERMINAL \
 $ORIGINAL_FONTS \
 $BACKUP_DIR
 

@@ -1,0 +1,8 @@
+[user]
+	email = christiaan@droiddev.nl
+	name = techwolf12
+[push]
+	default = matching
+[core]
+	autocrlf = input
+	editor = nano
