@@ -1,0 +1,5 @@
+# Ignore temp files
+.~
+
+# Node thingies
+npm-debug.log

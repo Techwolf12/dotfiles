@@ -29,6 +29,8 @@ alias mv='mv -i'
 alias gittime='git log -5 --format="%cd"'
 alias gitl='git log --graph --abbrev-commit --pretty=oneline --decorate'
 alias gitaddcommitpullpush='git add . && git commit -a && git pull && git push'
+alias irssi='ssh -t techwolf12@ns1.droiddev.nl "screen -x"'
+alias gitc='git commit -S'
 PATH=$PATH:$HOME/scripts
 
 alias vlcplay='vlc -f --no-video-title-show --no-osd --play-and-exit -q'
