@@ -14,7 +14,7 @@ PACKAGES=(
     vim git tig tree htop synapse zsh google-chrome-stable gparted audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
 
-#Move all original rc files to a backup dir.
+# Move all original files to a backup dir.
 mkdir -p $BACKUP_DIR
 mv \
 $ORIGINAL_BASHRC \
@@ -26,6 +26,9 @@ $ORIGINAL_VIMRC \
 $ORIGINAL_GNOME_TERMINAL \
 $ORIGINAL_FONTS \
 $BACKUP_DIR
+
+# Scripts
+ls -sf $PWD/scripts $HOME/scripts
 
 # Setup Symlinks for all files
 ln -sf $PWD/bash/bashrc $ORIGINAL_BASHRC
@@ -88,3 +91,4 @@ gpg --output $HOME/.ssh/id_ecdsa --decrypt $PWD/ssh/id_ecdsa.gpg
 gpg --output $HOME/.ssh/id_rsa --decrypt $PWD/ssh/id_rsa.gpg
 chmod 600 $HOME/.ssh/id_*
 cp $PWD/ssh/{config,id_rsa.pub,id_ecdsa.pub} $HOME/.ssh/
+

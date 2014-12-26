@@ -1,0 +1,34 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# Path to your oh-my-zsh installation.
+export ZSH=$PWD/zsh/oh-my-zsh
+
+# Set name of the theme to load.
+ZSH_THEME="techwolf"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="true"
+
+# Which plugins would you like to load? 
+plugins=(git debian common-aliases encode64 npm nyan wd)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+export PATH="/root/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export LANG=en_US.UTF-8
+
+# Aliases to not delete everything
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Custom aliases
+alias gittime='git log -5 --format="%cd"'
+alias gitl='git log --graph --abbrev-commit --pretty=oneline --decorate'
+alias gitaddcommitpullpush='git add . && git commit -a && git pull && git push'
+PATH=$PATH:$HOME/scripts
+
+alias vlcplay='vlc -f --no-video-title-show --no-osd --play-and-exit -q'
