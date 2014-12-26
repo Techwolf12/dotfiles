@@ -1,0 +1,12 @@
+#!/bin/sh
+if (( $# == 1 ))
+then
+  openssl rsa -in $1 -out decrypted-$1
+  exit 1
+fi
+if (( $# == 2 ))
+then
+  openssl rsa -in $1 -out $2
+  exit 1
+fi
+

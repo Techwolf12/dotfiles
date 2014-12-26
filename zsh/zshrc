@@ -32,3 +32,6 @@ alias gitaddcommitpullpush='git add . && git commit -a && git pull && git push'
 PATH=$PATH:$HOME/scripts
 
 alias vlcplay='vlc -f --no-video-title-show --no-osd --play-and-exit -q'
+
+# Run login script
+$HOME/.loginscript

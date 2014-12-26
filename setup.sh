@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 BACKUP_DIR=$PWD/rc_backup
 
@@ -10,7 +10,7 @@ ORIGINAL_GITCONFIG=$HOME/.gitconfig
 ORIGINAL_FONTS=$HOME/.fonts
 ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
 PACKAGES=(
-    vim git tig tree htop synapse zsh google-chrome-stable gparted gnupg audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
+    vim libreoffice git tig tree htop synapse zsh google-chrome-stable gparted gnupg audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
 
 # Move all original files to a backup dir.
@@ -27,6 +27,7 @@ $BACKUP_DIR
 
 # Scripts
 ln -sf $PWD/scripts $HOME/scripts
+ln -sf $PWD/loginscript $HOME/.loginscript
 
 # Setup Symlinks for all files
 ln -sf $PWD/bash/bashrc $ORIGINAL_BASHRC
@@ -36,6 +37,14 @@ ln -sf $PWD/bash/profile $ORIGINAL_PROFILE
 ln -sf $PWD/git/gitconfig $ORIGINAL_GITCONFIG
 ln -sf $PWD/gnupg/gpg.conf $ORIGINAL_GNUPGCONF
 ln -sf $PWD/fonts $ORIGINAL_FONTS
+
+# Ask some finetuning questions
+read -p "Do you wish to install the C/C++ compiler? [yn]" yn
+    case $yn in
+        [Yy]* ) packages+=(build-essential); break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
 
 # Install the newest updates for already installed packages
 sudo apt-get --yes --force-yes upgrade
