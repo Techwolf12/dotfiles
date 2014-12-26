@@ -8,8 +8,9 @@ ORIGINAL_DIRCOLORS=$HOME/.dircolors
 ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_GITCONFIG=$HOME/.gitconfig
 ORIGINAL_FONTS=$HOME/.fonts
+ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
 PACKAGES=(
-    vim git tig tree htop synapse zsh google-chrome-stable gparted audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
+    vim git tig tree htop synapse zsh google-chrome-stable gparted gnupg audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
 
 # Move all original files to a backup dir.
@@ -20,11 +21,12 @@ $ORIGINAL_ZSHRC \
 $ORIGINAL_DIRCOLORS \
 $ORIGINAL_PROFILE \
 $ORIGINAL_GITCONFIG \
+$ORIGINAL_GNUPGCONF \
 $ORIGINAL_FONTS \
 $BACKUP_DIR
 
 # Scripts
-ls -sf $PWD/scripts $HOME/scripts
+ln -sf $PWD/scripts $HOME/scripts
 
 # Setup Symlinks for all files
 ln -sf $PWD/bash/bashrc $ORIGINAL_BASHRC
@@ -32,8 +34,7 @@ ln -sf $PWD/zsh/zshrc $ORIGINAL_ZSHRC
 ln -sf $PWD/bash/dircolors $ORIGINAL_DIRCOLORS
 ln -sf $PWD/bash/profile $ORIGINAL_PROFILE
 ln -sf $PWD/git/gitconfig $ORIGINAL_GITCONFIG
-ln -sf $PWD/vim/vimrc $ORIGINAL_VIMRC
-ln -sf $PWD/gnome-terminal $ORIGINAL_GNOME_TERMINAL
+ln -sf $PWD/gnupg/gpg.conf $ORIGINAL_GNUPGCONF
 ln -sf $PWD/fonts $ORIGINAL_FONTS
 
 # Install the newest updates for already installed packages
