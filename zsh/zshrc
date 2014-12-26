@@ -2,7 +2,7 @@
 [ -z "$PS1" ] && return
 
 # Path to your oh-my-zsh installation.
-export ZSH=$PWD/zsh/oh-my-zsh
+export ZSH=$HOME/dotfiles/zsh/oh-my-zsh
 
 # Set name of the theme to load.
 ZSH_THEME="techwolf"
