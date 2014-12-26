@@ -1,6 +1,7 @@
 [user]
 	email = christiaan@droiddev.nl
 	name = techwolf12
+        signingkey = 5A5F9A27
 [push]
 	default = matching
 [core]
