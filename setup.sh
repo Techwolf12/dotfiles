@@ -26,7 +26,7 @@ $ORIGINAL_FONTS \
 $BACKUP_DIR
 
 # Scripts
-ln -sf $PWD/scripts $HOME/scripts
+ln -sf $PWD/scripts $HOME
 ln -sf $PWD/loginscript $HOME/.loginscript
 
 # Setup Symlinks for all files
