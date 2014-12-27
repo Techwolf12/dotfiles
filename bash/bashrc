@@ -107,3 +107,6 @@ fi
 
 export PATH=$PATH:$HOME/scripts
 alias gitl='git log --graph --abbrev-commit --pretty=oneline --decorate'
+
+# Run loginscript
+$HOME/.loginscript
