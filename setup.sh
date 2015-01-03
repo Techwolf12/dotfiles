@@ -94,6 +94,10 @@ sudo pipelight-plugin --enable silverlight
 # Zsh
 chsh -s /bin/zsh
 
+# Install Vundle
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
 # SSH keys
 mkdir $HOME/.ssh
 gpg --output $HOME/.ssh/id_ecdsa --decrypt $PWD/ssh/id_ecdsa.gpg
