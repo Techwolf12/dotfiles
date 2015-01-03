@@ -4,6 +4,7 @@ BACKUP_DIR=$PWD/rc_backup
 
 ORIGINAL_BASHRC=$HOME/.bashrc
 ORIGINAL_ZSHRC=$HOME/.zshrc
+ORIGINAL_VIMRC=$HOME/.vimrc
 ORIGINAL_DIRCOLORS=$HOME/.dircolors
 ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_GITCONFIG=$HOME/.gitconfig
@@ -22,6 +23,7 @@ $ORIGINAL_DIRCOLORS \
 $ORIGINAL_PROFILE \
 $ORIGINAL_GITCONFIG \
 $ORIGINAL_GNUPGCONF \
+$ORIGINAL_VIMRC	\
 $ORIGINAL_FONTS \
 $BACKUP_DIR
 
@@ -32,6 +34,7 @@ ln -sf $PWD/loginscript $HOME/.loginscript
 # Setup Symlinks for all files
 ln -sf $PWD/bash/bashrc $ORIGINAL_BASHRC
 ln -sf $PWD/zsh/zshrc $ORIGINAL_ZSHRC
+ln -sf $PWD/vim/vimrc $ORIGINAL_VIMRC
 ln -sf $PWD/bash/dircolors $ORIGINAL_DIRCOLORS
 ln -sf $PWD/bash/profile $ORIGINAL_PROFILE
 ln -sf $PWD/git/gitconfig $ORIGINAL_GITCONFIG

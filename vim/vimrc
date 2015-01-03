@@ -1,0 +1,182 @@
+" SELF DEFINED VIM SETTINGS!
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible                " must be first
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle
+Plugin 'gmarik/vundle.vim'
+
+" Installed Plugins
+
+" Syntax checker
+Plugin 'Syntastic'
+
+scriptencoding utf-8
+let g:syntastic_error_symbol='✗✗'
+let g:syntastic_style_error_symbol='✗✗'
+let g:syntastic_warning_symbol='⚠⚠'
+let g:syntastic_style_warning_symbol='⚠⚠'
+let g:syntastic_check_on_open=1
+
+Plugin 'scrooloose/nerdtree'
+map <F7> :NERDTreeToggle<CR>
+
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tComment'
+
+Plugin 'bling/vim-airline'
+" Change the powerline icons to the correct terms.
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+let g:airline#extensions#tabline#enabled = 1
+set ttimeoutlen=50              " Stop the delay in airline when leaving insertmode.
+
+Plugin 'majutsushi/tagbar'
+map <F8> :Tagbar<CR>
+highlight TagbarHighlight term=underline ctermfg=130 ctermbg=0 guifg=Brown
+
+Plugin 'airblade/vim-gitgutter'
+Plugin 'kien/ctrlp.vim'
+Plugin 'dag/vim-fish'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Valloric/YouCompleteMe'
+
+" Syntax plugins
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'othree/html5.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'groenewege/vim-less'
+Plugin 'plasticboy/vim-markdown'
+
+call vundle#end()
+
+if exists('+colorcolumn')
+    set colorcolumn=80             " Mark the 80 colomn
+end
+
+if &shell =~# 'fish$'
+    set shell=bash
+endif
+
+
+" Indenting like a boss
+set autoindent
+set smartindent
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smarttab
+
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+set ruler                       " display the current cursor position in bottomleft
+set showcmd                     " display incomplete commands
+set history=50                  " keep 50 commands 50 patterns in the history
+set incsearch                   " do incremental searching
+set showmatch                   " Show matching bracket
+set hidden                      " Hides current buffer on opening a new file instead of closing
+set history=1000                " remember more commands and search history
+set undolevels=1000             " use many muchos levels of undo
+set title                       " change the terminal's title
+set visualbell                  " don't beep
+set noerrorbells                " don't beep
+set laststatus=2                " always show the statusbar.
+set t_Co=256                    " set color scheme to 256
+set nobackup                    " set no backups
+set number                      " set line numbers
+
+let g:mapleader = ','
+
+if !exists(":W")
+    command W w                     " use W to (w)rite
+    command Q q                     " use Q to (q)uit
+    command Wq wq                   " use W to (w)rite(q)uit
+    command WQ wq                   " ...
+    command Wa wa                   " ...
+    command Qa qa                   " ...
+    command Wqa wqa                 " ...
+    command WQa wqa                 " ...
+    command WQA wqa                 " ...
+
+    " Set escape to remove highlighting
+    nnoremap <silent><leader>/ :nohls <CR>
+    nnoremap ; :
+
+    " Dont stop visual mode on block (un)indent
+    vnoremap < <gv
+    vnoremap > >gv
+
+    " Allow for blocks to be walked through the code
+    vnoremap J :m '>+1<CR>gv=gv
+    vnoremap K :m '<-2<CR>gv=gv
+
+    " Jump to next/previous merge conflict marker
+    nnoremap <silent> ]c /\v^(\<\|\=\|\>){7}([^=].+)?$<CR>
+    nnoremap <silent> [c ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>
+
+endif
+
+if has('autocmd')
+
+    " For all text files set 'textwidth' to 78 characters.
+    augroup SetWrapperForTextFiles
+        au!
+        au BufRead,BufNewFile *.md setlocal tw=80 spell
+        au BufRead,BufNewFile *.txt setlocal tw=80 spell
+        au BufRead,BufNewFile *.tex setlocal tw=80 spell
+    augroup END
+
+    " Automatically remove all trailing whitespace from the file before
+    " saving.
+    augroup RemoveTrailingWhitespace
+        au!
+        autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+    augroup END
+
+    augroup reload_vimrc
+        au!
+        autocmd BufWritePost $MYVIMRC source $MYVIMRC
+    augroup END
+endif
+
+
+"ignore *.ext files
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.so,*.a,*.lib,*.obj,*.png,*.jpg,*.gif,*.dll,*.pdf
+
+highlight ColorColumn ctermbg=DarkGray
+highlight LineNr ctermbg=Black
+highlight SignColumn ctermbg=black
+highlight Search term=reverse cterm=bold
+
+" Highlight merge conflict markers
+match Todo '\v^(\<|\=|\>){7}([^=].+)?$'
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+    syntax on
+    set hlsearch
+endif
+
+" Enable file type detection.
+" Use the default filetype settings, so that mail gets 'tw' set to 72,
+" 'cindent' is on in C files, etc.
+" Also load indent files, to automatically do language-dependent indenting.
+filetype plugin indent on
+
+" Fix the difficult-to-read default setting for diff text highlighting.  The
+" " bang (!) is required since we are overwriting the DiffText setting. The
+" highlighting for Todo also looks nice (yellow) if you don't like the MatchParent
+" colors.
+" highlight! link DiffText MatchParen 
