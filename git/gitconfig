@@ -6,4 +6,4 @@
 	default = matching
 [core]
 	autocrlf = input
-	editor = nano
+	editor = vim
