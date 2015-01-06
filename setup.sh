@@ -98,6 +98,10 @@ chsh -s /bin/zsh
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
+# Install New Relic monitor
+gpg --output /tmp/newrelic.sh --decrypt $PWD/packages/newrelic.sh.gpg
+sh /tmp/newrelic.sh
+
 # SSH keys
 mkdir $HOME/.ssh
 gpg --output $HOME/.ssh/id_ecdsa --decrypt $PWD/ssh/id_ecdsa.gpg
