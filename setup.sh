@@ -44,7 +44,7 @@ ln -sf $PWD/fonts $ORIGINAL_FONTS
 # Ask some finetuning questions
 read -p "Do you wish to install the C/C++ compiler? [yn]" yn
     case $yn in
-        [Yy]* ) packages+=(build-essential); break;;
+        [Yy]* ) packages+=(build-essential cmake); break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
