@@ -12,7 +12,7 @@ ORIGINAL_FONTS=$HOME/.fonts
 ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
 ORIGINAL_MUTTRC=$HOME/.muttrc
 PACKAGES=(
-    vim libreoffice git tig tree htop synapse zsh google-chrome-stable gparted gnupg audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
+    vim libreoffice git tig tree htop synapse zsh google-chrome-stable gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
 
 # Move all original files to a backup dir.
