@@ -10,6 +10,7 @@ ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_GITCONFIG=$HOME/.gitconfig
 ORIGINAL_FONTS=$HOME/.fonts
 ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
+ORIGINAL_MUTTRC=$HOME/.muttrc
 PACKAGES=(
     vim libreoffice git tig tree htop synapse zsh google-chrome-stable gparted gnupg audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
@@ -25,6 +26,7 @@ $ORIGINAL_GITCONFIG \
 $ORIGINAL_GNUPGCONF \
 $ORIGINAL_VIMRC	\
 $ORIGINAL_FONTS \
+$ORIGINAL_MUTTRC \
 $BACKUP_DIR
 
 # Scripts
@@ -40,6 +42,7 @@ ln -sf $PWD/bash/profile $ORIGINAL_PROFILE
 ln -sf $PWD/git/gitconfig $ORIGINAL_GITCONFIG
 ln -sf $PWD/gnupg/gpg.conf $ORIGINAL_GNUPGCONF
 ln -sf $PWD/fonts $ORIGINAL_FONTS
+ln -sf $PWD/mutt/muttrc $ORIGINAL_MUTTRC
 
 # Ask some finetuning questions
 read -p "Do you wish to install the C/C++ compiler? [yn]" yn
