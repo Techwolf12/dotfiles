@@ -97,13 +97,17 @@ sudo pipelight-plugin --enable silverlight
 # Zsh
 chsh -s /bin/zsh
 
+# Import GPG key
+wget -o /tmp/2F2546D8.asc http://techwolf12.nl/keys/2F2546D8.asc
+gpg --import /tmp/2F2546D8.asc
+
 # Install Vundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
 # Install New Relic monitor
-gpg --output /tmp/newrelic.sh --decrypt $PWD/packages/newrelic.sh.gpg
-sh /tmp/newrelic.sh
+#gpg --output /tmp/newrelic.sh --decrypt $PWD/packages/newrelic.sh.gpg
+#sh /tmp/newrelic.sh
 
 # SSH keys
 mkdir $HOME/.ssh
