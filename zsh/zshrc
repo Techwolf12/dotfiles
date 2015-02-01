@@ -35,6 +35,7 @@ PATH=$PATH:$HOME/scripts
 
 alias vlcplay='vlc -f --no-video-title-show --no-osd --play-and-exit -q'
 alias socksstart='ssh -Nn -D 1080 techwolf12@ns1.droiddev.nl'
+alias dtmfdecode='multimon | grep \'DTMF\|CCIR\|AFSK\''
 
 # Run login script
 $HOME/.loginscript

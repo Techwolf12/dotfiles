@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo service pcscd restart
+gpg --card-status
