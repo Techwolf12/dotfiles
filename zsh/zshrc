@@ -35,7 +35,19 @@ PATH=$PATH:$HOME/scripts
 
 alias vlcplay='vlc -f --no-video-title-show --no-osd --play-and-exit -q'
 alias socksstart='ssh -Nn -D 1080 techwolf12@ns1.droiddev.nl'
-alias dtmfdecode='multimon | grep \'DTMF\|CCIR\|AFSK\''
+alias dtmfdecode='multimon | grep "DTMF\|CCIR\|AFSK"'
+
+# Start GPG agent with SSH support
+if test -f $XDG_RUNTIME_DIR/gpg-agent-info && kill -0 $(head -n 1 $XDG_RUNTIME_DIR/gpg-agent-info | cut -d: -f2) 2>/dev/null ; then
+    eval $(< $XDG_RUNTIME_DIR/gpg-agent-info)
+else
+    eval $(gpg-agent --daemon --enable-ssh-support --write-env-file $XDG_RUNTIME_DIR/gpg-agent-info)
+fi
+export GPG_AGENT_INFO
+export SSH_AUTH_SOCK
 
 # Run login script
 $HOME/.loginscript
+
+
+
