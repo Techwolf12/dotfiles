@@ -14,7 +14,6 @@ alias gitc='git commit -S'
 # Programs
 alias vlcplay='vlc -f --no-video-title-show --no-osd --play-and-exit -q'
 alias sshproxy='ssh -Nn -D 1080'
-alias dtmfdecode='multimon | grep "DTMF\|CCIR\|AFSK"'
+alias radiodecode='multimon | grep "DTMF\|CCIR\|AFSK"'
 alias gpge='gpg --armor --encrypt --sign'
 alias gpgs='gpg --clearsign'
-alias irssi='ssh -t techwolf12@ns1.droiddev.nl "screen -x"'

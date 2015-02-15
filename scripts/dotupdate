@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OLDWD = $PWD
+OLDWD=$PWD
 
 cd $HOME/dotfiles
 
