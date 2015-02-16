@@ -13,7 +13,7 @@ ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
 ORIGINAL_MUTTRC=$HOME/.muttrc
 ORIGINAL_IRSSI=$HOME/.irssi/irssi.conf
 PACKAGES=(
-    vim thunderbird irssi libreoffice git tig tree htop synapse scrot i3lock zsh newrelic-sysmond google-chrome-stable spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
+    vim thunderbird irssi libreoffice git tig tree htop synapse scrot i3lock zsh newrelic-sysmond google-chrome-stable spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer shutter nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
 
 # Move all original files to a backup dir.
@@ -71,27 +71,23 @@ if [[ ! -e "/etc/apt/sources.list.d/google-chrome.list" ]];
 then
     sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 fi
-
-if [[ ! -e "/etc/apt/sources.list.d/google-talkplugin.list" ]];
-then
-    sudo sh -c 'echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" >> /etc/apt/sources.list.d/google-talkplugin.list'
-fi
 # Spotify
 sudo add-apt-repository "deb http://repository.spotify.com stable non-free"
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
 
-# Skype
-sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
 
 # Java
-sudo add-apt-repository ppa:webupd8team/java
+sudo add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main"
+sudo add-apt-repository "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main"
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 
-# Pipeline
-sudo apt-add-repository ppa:pipelight/stable
+# Pipelight
+wget -O- http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Debian_7.0/Release.key | sudo apt-key add -
+sudo apt-add-repository "deb http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Debian_7.0/ ./"
 
 # Newrelic
 sudo add-apt-repository "deb http://apt.newrelic.com/debian/ newrelic non-free"
-wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
+wget -O- https://download.newrelic.com/548C16BF.gpg | sudo apt-key add -
 
 # Dropbox
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
