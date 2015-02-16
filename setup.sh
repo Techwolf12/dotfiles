@@ -18,7 +18,7 @@ PACKAGES=(
 
 # Move all original files to a backup dir.
 mkdir -p $BACKUP_DIR
-mv \
+mv \
 $ORIGINAL_BASHRC \
 $ORIGINAL_IRSSI \
 $ORIGINAL_ZSHRC \
@@ -50,7 +50,7 @@ ln -sf $PWD/fonts $ORIGINAL_FONTS
 ln -sf $PWD/mutt/muttrc $ORIGINAL_MUTTRC
 
 # Copy some files
-cp $PWD/irssi/irssi.conf $HOME/.irssi/irssi.conf
+cp $PWD/irssi/irssi.conf $HOME/.irssi/config
 
 # Ask some finetuning questions
 read -p "Do you wish to install the C/C++ compiler? [yn]" yn
