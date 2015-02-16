@@ -6,3 +6,6 @@ npm-debug.log
 
 # Backup (Every pc has a different one ;) )
 rc_backup/
+
+# Secrets
+secrets/secrets.sh

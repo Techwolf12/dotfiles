@@ -11,14 +11,16 @@ ORIGINAL_GITCONFIG=$HOME/.gitconfig
 ORIGINAL_FONTS=$HOME/.fonts
 ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
 ORIGINAL_MUTTRC=$HOME/.muttrc
+ORIGINAL_IRSSI=$HOME/.irssi/irssi.conf
 PACKAGES=(
-    vim libreoffice git tig tree htop synapse zsh google-chrome-stable gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
+    vim irssi libreoffice git tig tree htop synapse zsh newrelic-sysmond google-chrome-stable gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
 
 # Move all original files to a backup dir.
 mkdir -p $BACKUP_DIR
 mv \
 $ORIGINAL_BASHRC \
+$ORIGINAL_IRSSI \
 $ORIGINAL_ZSHRC \
 $ORIGINAL_DIRCOLORS \
 $ORIGINAL_PROFILE \
@@ -28,6 +30,9 @@ $ORIGINAL_VIMRC	\
 $ORIGINAL_FONTS \
 $ORIGINAL_MUTTRC \
 $BACKUP_DIR
+
+# Ensures all directories are existing
+mkdir -p $HOME/.vim $HOME/.git $HOME/.gnupg $HOME/.irssi
 
 # Scripts
 ln -sf $PWD/scripts $HOME
@@ -78,12 +83,21 @@ sudo add-apt-repository ppa:webupd8team/java
 # Pipeline
 sudo apt-add-repository ppa:pipelight/stable
 
+# Newrelic
+sudo add-apt-repository "deb http://apt.newrelic.com/debian/ newrelic non-free"
+wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
+
 # Dropbox
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
 if [[ ! -e "/etc/apt/sources.list.d/dropbox.list" ]];
 then
     sudo sh -c 'echo "deb http://linux.dropbox.com/ubuntu/ trusty main" >> /etc/apt/sources.list.d/dropbox.list'
 fi
+
+# Own key
+sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 2F2546D8
+
+# Instarr packages
 
 sudo apt-get update
 
@@ -98,21 +112,17 @@ sudo pipelight-plugin --enable silverlight
 chsh -s /bin/zsh
 
 # Import GPG key
-wget -o /tmp/2F2546D8.asc http://techwolf12.nl/keys/2F2546D8.asc
-gpg --import /tmp/2F2546D8.asc
+gpg --card-edit / fetch quit
 
 # Install Vundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
-# Install New Relic monitor
-#gpg --output /tmp/newrelic.sh --decrypt $PWD/packages/newrelic.sh.gpg
-#sh /tmp/newrelic.sh
-
 # SSH keys
-mkdir $HOME/.ssh
-gpg --output $HOME/.ssh/id_ecdsa --decrypt $PWD/ssh/id_ecdsa.gpg
-gpg --output $HOME/.ssh/id_rsa --decrypt $PWD/ssh/id_rsa.gpg
-chmod 600 $HOME/.ssh/id_*
+mkdir -p $HOME/.ssh
 cp $PWD/ssh/{config,id_rsa.pub,id_ecdsa.pub} $HOME/.ssh/
+
+# Install all secrets
+gpg --output /tmp/secrets.sh --decrypt $PWD/secrets/secrets.sh.gpg
+sh /tmp/secrets.sh
 
