@@ -13,7 +13,7 @@ ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
 ORIGINAL_MUTTRC=$HOME/.muttrc
 ORIGINAL_IRSSI=$HOME/.irssi/irssi.conf
 PACKAGES=(
-    vim irssi libreoffice git tig tree htop synapse zsh newrelic-sysmond google-chrome-stable gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
+    vim irssi libreoffice git tig tree htop synapse zsh newrelic-sysmond google-chrome-stable spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
 
 # Move all original files to a backup dir.
@@ -76,6 +76,9 @@ if [[ ! -e "/etc/apt/sources.list.d/google-talkplugin.list" ]];
 then
     sudo sh -c 'echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" >> /etc/apt/sources.list.d/google-talkplugin.list'
 fi
+# Spotify
+sudo add-apt-repository "deb http://repository.spotify.com stable non-free"
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
 
 # Skype
 sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
