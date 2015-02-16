@@ -49,6 +49,9 @@ ln -sf $PWD/gnupg/gpg.conf $ORIGINAL_GNUPGCONF
 ln -sf $PWD/fonts $ORIGINAL_FONTS
 ln -sf $PWD/mutt/muttrc $ORIGINAL_MUTTRC
 
+# Copy some files
+cp $PWD/irssi/irssi.conf $HOME/.irssi/irssi.conf
+
 # Ask some finetuning questions
 read -p "Do you wish to install the C/C++ compiler? [yn]" yn
     case $yn in
