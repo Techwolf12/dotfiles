@@ -10,15 +10,15 @@ ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_GITCONFIG=$HOME/.gitconfig
 ORIGINAL_FONTS=$HOME/.fonts
 ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
-ORIGINAL_MUTTRC=$HOME/.muttrc
+ORIGINAL_MUTTRC=$HOME/.muttrc
 ORIGINAL_IRSSI=$HOME/.irssi/irssi.conf
 PACKAGES=(
-    vim irssi libreoffice git tig tree htop synapse zsh newrelic-sysmond google-chrome-stable spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
+    vim irssi libreoffice git tig tree htop synapse scrot i3lock zsh newrelic-sysmond google-chrome-stable spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer google-talkplugin shutter skype nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
 
 # Move all original files to a backup dir.
 mkdir -p $BACKUP_DIR
-mv \
+mv \
 $ORIGINAL_BASHRC \
 $ORIGINAL_IRSSI \
 $ORIGINAL_ZSHRC \
