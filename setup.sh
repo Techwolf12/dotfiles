@@ -13,7 +13,7 @@ ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
 ORIGINAL_MUTTRC=$HOME/.muttrc
 ORIGINAL_IRSSI=$HOME/.irssi/irssi.conf
 PACKAGES=(
-    vim thunderbird irssi libreoffice git tig tree htop synapse scrot i3lock zsh newrelic-sysmond google-chrome-stable spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unrar unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance compizconfig-settings-manager pipelight-multi dropbox oracle-java8-installer shutter nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
+    vim icedove irssi libreoffice git tig tree htop build-essential cmake synapse scrot i3lock zsh newrelic-sysmond chromium-browser spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance pipelight-multi dropbox openjdk-7-jre openjdk-7-jdk shutter nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
 
 # Move all original files to a backup dir.
@@ -52,34 +52,15 @@ ln -sf $PWD/mutt/muttrc $ORIGINAL_MUTTRC
 # Copy some files
 cp $PWD/irssi/irssi.conf $HOME/.irssi/config
 
-# Ask some finetuning questions
-read -p "Do you wish to install the C/C++ compiler? [yn]" yn
-    case $yn in
-        [Yy]* ) packages+=(build-essential cmake); break;;
-        [Nn]* ) break;;
-        * ) echo "Please answer yes or no.";;
-    esac
 
 # Install the newest updates for already installed packages
 sudo apt-get --yes --force-yes upgrade
 
 sudo dpkg --add-architecture i386
 
-# Google Chrome
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-if [[ ! -e "/etc/apt/sources.list.d/google-chrome.list" ]];
-then
-    sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-fi
 # Spotify
 sudo add-apt-repository "deb http://repository.spotify.com stable non-free"
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
-
-
-# Java
-sudo add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main"
-sudo add-apt-repository "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main"
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 
 # Pipelight
 wget -O- http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Debian_7.0/Release.key | sudo apt-key add -
@@ -93,7 +74,7 @@ wget -O- https://download.newrelic.com/548C16BF.gpg | sudo apt-key add -
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
 if [[ ! -e "/etc/apt/sources.list.d/dropbox.list" ]];
 then
-    sudo sh -c 'echo "deb http://linux.dropbox.com/ubuntu/ trusty main" >> /etc/apt/sources.list.d/dropbox.list'
+    sudo sh -c 'echo "deb http://linux.dropbox.com/debian/ wheezy main" >> /etc/apt/sources.list.d/dropbox.list'
 fi
 
 # Own key
