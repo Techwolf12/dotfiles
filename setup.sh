@@ -94,6 +94,11 @@ sudo pipelight-plugin --enable silverlight
 # Zsh
 chsh -s /bin/zsh
 
+# Gnome-keyring-daemon fix 
+sudo mv /etc/xdg/autostart/gnome-keyring-gpg.desktop /etc/xdg/autostart/gnome-keyring-gpg.desktop.disabled
+sudo mv /etc/xdg/autostart/gnome-keyring-ssh.desktop /etc/xdg/autostart/gnome-keyring-ssh.desktop.disabled
+sudo pkill gnome-keyring-daemon
+
 # Import GPG key
 gpg --card-edit / fetch quit
 
