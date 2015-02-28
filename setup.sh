@@ -13,7 +13,7 @@ ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
 ORIGINAL_MUTTRC=$HOME/.muttrc
 ORIGINAL_IRSSI=$HOME/.irssi/irssi.conf
 PACKAGES=(
-    vim icedove irssi libreoffice git tig tree htop build-essential cmake synapse scrot i3lock zsh newrelic-sysmond chromium-browser spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance pipelight-multi dropbox openjdk-7-jre openjdk-7-jdk shutter nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
+    vim icedove irssi libreoffice git curl gawk firefox firefox-l10n-en-gb thunderbird thunderbird-l10n-en-gb tig tree htop build-essential cmake synapse scrot i3lock zsh newrelic-sysmond chromium-browser spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance pipelight-multi dropbox openjdk-7-jre openjdk-7-jdk shutter nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
 
 # Move all original files to a backup dir.
@@ -76,6 +76,11 @@ if [[ ! -e "/etc/apt/sources.list.d/dropbox.list" ]];
 then
     sudo sh -c 'echo "deb http://linux.dropbox.com/debian/ wheezy main" >> /etc/apt/sources.list.d/dropbox.list'
 fi
+
+# (Real) Firefox
+sudo apt-add-repository "deb http://packages.linuxmint.com debian import"
+sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 3EE67F3D0FF405B2
+sudo apt-get remove --purge iceweasel
 
 # Own key
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 2F2546D8
