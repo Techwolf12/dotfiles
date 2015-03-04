@@ -48,7 +48,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'dag/vim-fish'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 " Syntax plugins
 Plugin 'hynek/vim-python-pep8-indent'
@@ -160,7 +160,7 @@ highlight SignColumn ctermbg=black
 highlight Search term=reverse cterm=bold
 
 " Highlight merge conflict markers
-match Todo '\v^(\<|\=|\>){7}([^=].+)?$'
+" match Todo '\v^(\<|\=|\>){7}([^=].+)?$'
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
