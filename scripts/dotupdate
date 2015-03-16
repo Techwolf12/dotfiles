@@ -3,7 +3,6 @@
 OLDWD=$PWD
 
 cd $HOME/dotfiles
-
 git pull >/dev/null 2>&1
 
 cd $OLDWD

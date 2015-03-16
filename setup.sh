@@ -13,7 +13,7 @@ ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
 ORIGINAL_MUTTRC=$HOME/.muttrc
 ORIGINAL_IRSSI=$HOME/.irssi/irssi.conf
 PACKAGES=(
-    vim icedove irssi libreoffice git curl gawk firefox firefox-l10n-en-gb thunderbird thunderbird-l10n-en-gb tig tree htop build-essential cmake synapse scrot i3lock zsh newrelic-sysmond chromium-browser spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unzip ipython python3 qalculate openssh-server keepass2 imagemagick lxappearance pipelight-multi dropbox openjdk-7-jre openjdk-7-jdk shutter nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
+    vim irssi libreoffice git curl gawk firefox firefox-l10n-en-gb thunderbird thunderbird-l10n-en-gb tig tree htop build-essential cmake synapse scrot i3lock zsh newrelic-sysmond chromium-browser spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unzip ipython python3 qalculate openssh-server imagemagick lxappearance pipelight-multi dropbox openjdk-7-jre openjdk-7-jdk shutter nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g
 )
 
 # Move all original files to a backup dir.
@@ -99,7 +99,7 @@ sudo pipelight-plugin --enable silverlight
 # Zsh
 chsh -s /bin/zsh
 
-# Gnome-keyring-daemon fix 
+# Gnome-keyring-daemon fix
 sudo mv /etc/xdg/autostart/gnome-keyring-gpg.desktop /etc/xdg/autostart/gnome-keyring-gpg.desktop.disabled
 sudo mv /etc/xdg/autostart/gnome-keyring-ssh.desktop /etc/xdg/autostart/gnome-keyring-ssh.desktop.disabled
 sudo pkill gnome-keyring-daemon

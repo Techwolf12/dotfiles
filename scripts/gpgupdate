@@ -1,0 +1,12 @@
+#!/bin/sh
+$OLDWD=$PWD
+
+cd $HOME/dotfiles/secrets
+# Import keys/trust
+gpg -d gpg-pubkeyring.gpg | gpg --import
+gpg -d gpg-ownertrust.gpg | gpg --import-ownertrust
+# Export them again
+gpg --export-ownertrust | gpg --armor -r 0x34B35DD172E366BF6867AB069FB800372F2546D8 --output gpg-ownertrust.gpg --batch --yes --encrypt
+gpg --armor --export | gpg --armor -r 0x34B35DD172E366BF6867AB069FB800372F2546D8 --output gpg-pubkeyring.gpg --batch --yes --encrypt
+
+cd $OLDWD
