@@ -104,6 +104,12 @@ sudo mv /etc/xdg/autostart/gnome-keyring-gpg.desktop /etc/xdg/autostart/gnome-ke
 sudo mv /etc/xdg/autostart/gnome-keyring-ssh.desktop /etc/xdg/autostart/gnome-keyring-ssh.desktop.disabled
 sudo pkill gnome-keyring-daemon
 
+# Add certificates
+sudo mkdir /usr/share/ca-certificates/CA
+sudo cp $PWD/CA/* /usr/share/ca-certificates/CA/
+for f in CA/*; do sudo bash -c "echo \"$f\" >>/etc/ca-certificates.conf"; done
+sudo update-ca-certificates
+
 # Import GPG key
 gpg --card-edit / fetch quit
 
