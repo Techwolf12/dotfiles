@@ -10,7 +10,7 @@ ZSH_THEME="techwolf"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
 
-# Which plugins would you like to load? 
+# Which plugins would you like to load?
 plugins=(git debian common-aliases encode64 npm nyan wd)
 
 source $ZSH/oh-my-zsh.sh
@@ -18,7 +18,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/root/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-export LANG=en_US.UTF-8
+export LANG="en_US.UTF-8"
 
 source $HOME/dotfiles/zsh/aliases
 

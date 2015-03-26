@@ -17,3 +17,16 @@ alias sshproxy='ssh -Nn -D 1080'
 alias radiodecode='multimon | grep "DTMF\|CCIR\|AFSK"'
 alias gpge='gpg --armor --encrypt --sign'
 alias gpgs='gpg --clearsign'
+
+# Stolen from Mirko (again yes)
+# Merge the .Xresources file after we worked with it.
+alias xmerge="xrdb -merge ~/.Xresources"
+
+# Rebind ls to show colors and premissions.
+alias ls="ls -aG --color=auto"
+
+# Kill current shell (Leaves no trace of commands.)
+alias kcs="kill -9 $$"
+
+# Get your outer IP address.
+alias ip="curl icanhazip.com"

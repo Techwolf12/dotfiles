@@ -179,4 +179,14 @@ filetype plugin indent on
 " " bang (!) is required since we are overwriting the DiffText setting. The
 " highlighting for Todo also looks nice (yellow) if you don't like the MatchParent
 " colors.
-" highlight! link DiffText MatchParen 
+" highlight! link DiffText MatchParen
+
+" Shit stolen from Mirko (https://github.com/Imakethings/)
+
+" write to read only file
+cnoremap w!! w !sudo tee % >/dev/null
+
+" system clipboard pasting
+ nnoremap <Leader>y :w !xclip<cr><cr>
+ nnoremap <Leader>yy :w !xclip<cr><cr>
+ nnoremap <Leader>p :r !xclip -o<cr>
