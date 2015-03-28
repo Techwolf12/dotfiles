@@ -26,6 +26,3 @@ PATH=$PATH:$HOME/scripts
 
 # Run login script
 $HOME/.loginscript
-
-
-

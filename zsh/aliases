@@ -18,6 +18,9 @@ alias radiodecode='multimon | grep "DTMF\|CCIR\|AFSK"'
 alias gpge='gpg --armor --encrypt --sign'
 alias gpgs='gpg --clearsign'
 
+alias down="please shutdown -h now"
+
+
 # Stolen from Mirko (again yes)
 # Merge the .Xresources file after we worked with it.
 alias xmerge="xrdb -merge ~/.Xresources"
@@ -30,3 +33,5 @@ alias kcs="kill -9 $$"
 
 # Get your outer IP address.
 alias ip="curl icanhazip.com"
+
+
