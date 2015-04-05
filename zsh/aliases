@@ -18,6 +18,9 @@ alias radiodecode='multimon | grep "DTMF\|CCIR\|AFSK"'
 alias gpge='gpg --armor --encrypt --sign'
 alias gpgs='gpg --clearsign'
 
+# Unclear stuff
+alias please='sudo'
+alias fucking='sudo'
 alias down="please shutdown -h now"
 
 
