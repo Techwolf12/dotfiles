@@ -10,7 +10,8 @@ ORIGINAL_PROFILE=$HOME/.profile
 ORIGINAL_GITCONFIG=$HOME/.gitconfig
 ORIGINAL_FONTS=$HOME/.fonts
 ORIGINAL_GNUPGCONF=$HOME/.gnupg/gpg.conf
-ORIGINAL_MUTTRC=$HOME/.muttrc
+ORIGINAL_MUTTRC=$HOME/.muttrc
+ORIGINAL_AWESOME=$HOME/.config/awesome
 ORIGINAL_IRSSI=$HOME/.irssi/irssi.conf
 PACKAGES=(
     vim irssi libreoffice git curl gawk firefox firefox-l10n-en-gb thunderbird thunderbird-l10n-en-gb tig tree htop build-essential cmake synapse scrot i3lock zsh newrelic-sysmond chromium-browser spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unzip ipython python3 qalculate openssh-server imagemagick lxappearance pipelight-multi dropbox openjdk-7-jre openjdk-7-jdk shutter nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g awesome
@@ -26,13 +27,14 @@ $ORIGINAL_DIRCOLORS \
 $ORIGINAL_PROFILE \
 $ORIGINAL_GITCONFIG \
 $ORIGINAL_GNUPGCONF \
+$ORIGINAL_AWESOME \
 $ORIGINAL_VIMRC	\
 $ORIGINAL_FONTS \
 $ORIGINAL_MUTTRC \
 $BACKUP_DIR
 
 # Ensures all directories are existing
-mkdir -p $HOME/.vim $HOME/.git $HOME/.gnupg $HOME/.irssi
+mkdir -p $HOME/.vim $HOME/.git $HOME/.gnupg $HOME/.irssi $HOME/.config/awesome
 
 # Scripts
 ln -sf $PWD/scripts $HOME
@@ -48,6 +50,7 @@ ln -sf $PWD/git/gitconfig $ORIGINAL_GITCONFIG
 ln -sf $PWD/gnupg/gpg.conf $ORIGINAL_GNUPGCONF
 ln -sf $PWD/fonts $ORIGINAL_FONTS
 ln -sf $PWD/mutt/muttrc $ORIGINAL_MUTTRC
+ln -sf $PWD/awesome/ $ORIGINAL_AWESOME
 
 # Copy some files
 cp $PWD/irssi/irssi.conf $HOME/.irssi/config
@@ -83,8 +86,8 @@ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 3EE67F3D0FF405B2
 sudo apt-get remove --purge iceweasel
 
 # Own key
-sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 2F2546D8
-
+sudo apt-key adv --keyserver hkp://keys.techwolf12.nl:80/ --recv-keys 2F2546D8
+sudo apt-key adv --keyserver hkp://keys.techwolf12.nl:80/ --recv-keys 593E5934
 # Instarr packages
 
 sudo apt-get update
