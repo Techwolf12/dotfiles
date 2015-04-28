@@ -1,0 +1,20 @@
+#!/bin/ksh
+#
+# Set trust level for a given GPG key
+#
+AWK=/usr/bin/gawk
+
+[ $# -ne 2 ] && echo "Syntax: $(basename $0) key trust-level" && exit 1
+
+gpg --fingerprint --with-colons --list-keys |\
+$AWK -F: -v keyname="$1" -v trustlevel="$2" '
+$1=="pub" && $10 ~ keyname { fpr=1 }
+$1=="fpr" && fpr { fpr=$10; exit }
+END {
+cmd="gpg --export-ownertrust"
+while (cmd | getline) if ($1!=fpr) print
+close(cmd)
+print fpr ":" trustlevel ":"
+}
+' | gpg --import-ownertrust
+

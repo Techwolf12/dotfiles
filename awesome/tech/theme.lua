@@ -37,9 +37,6 @@ theme.taglist_squares_unsel = "/usr/share/awesome/themes/default/taglist/squarew
 
 theme.tasklist_floating_icon = "/usr/share/awesome/themes/default/tasklist/floatingw.png"
 
--- Variables set for theming the menu:
--- menu_[bg|fg]_[normal|focus]
--- menu_[border_color|border_width]
 theme.menu_submenu_icon = "/usr/share/awesome/themes/default/submenu.png"
 theme.menu_height = "15"
 theme.menu_width  = "100"
