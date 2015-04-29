@@ -38,3 +38,5 @@ alias kcs="kill -9 $$"
 alias ip="curl icanhazip.com"
 
 alias curl="curl -s -S"
+
+alias openports="nmap portquiz.net"
