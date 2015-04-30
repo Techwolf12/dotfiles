@@ -4,6 +4,8 @@ var repl = require("repl");
 
 console.log("####\n## Program: Calculator\n## Author: Christiaan de Die le Clercq (@techwolf12)\n## Licence: GnuPL v2\n####\n");
 
+function evalOwn(cmd, context, filename, callback) {
+
 function isInteger(input) {
 	if (input == Math.floor(input)) {
 		return true;
@@ -77,19 +79,18 @@ function GCD(a, b) {
 	return result;
 }
 
-function simplify() {
-    var gcd_num = GCD();
-    return 0;
+function help() {
+	console.log("Available commands:\nTODO!");
 }
 
-function help() {
-	console.log("Woof");
+  callback(null, eval(cmd));
 }
 
 repl.start({
         prompt: "Calculator> ",
         input: process.stdin,
         output: process.stdout,
+	eval: evalOwn,
         ignoreUndefined: true
 });
 
