@@ -17,7 +17,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/root/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH="/root/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/"
 export LANG="en_US.UTF-8"
 
 source $HOME/dotfiles/zsh/aliases
