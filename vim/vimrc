@@ -96,7 +96,7 @@ set t_Co=256                    " set color scheme to 256
 set nobackup                    " set no backups
 set number                      " set line numbers
 
-let g:mapleader = ','
+let g:mapleader = '\'
 
 if !exists(":W")
     command W w                     " use W to (w)rite
@@ -190,3 +190,9 @@ cnoremap w!! w !sudo tee % >/dev/null
  nnoremap <Leader>y :w !xclip<cr><cr>
  nnoremap <Leader>yy :w !xclip<cr><cr>
  nnoremap <Leader>p :r !xclip -o<cr>
+
+" Snippet variables.
+let g:snips_author_short= 'techwolf12'
+let g:snips_author_long = 'Christiaan de Die le Clercq'
+let g:snips_email = '<contact@techwolf12.nl>'
+let g:snips_github= 'https://github.com/techwolf12/'
