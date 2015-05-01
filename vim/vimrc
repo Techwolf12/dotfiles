@@ -22,6 +22,7 @@ let g:syntastic_warning_symbol='⚠⚠'
 let g:syntastic_style_warning_symbol='⚠⚠'
 let g:syntastic_check_on_open=1
 
+colorscheme darkblue
 Plugin 'scrooloose/nerdtree'
 map <F7> :NERDTreeToggle<CR>
 
