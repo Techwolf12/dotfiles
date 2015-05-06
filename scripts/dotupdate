@@ -4,6 +4,17 @@ OLDWD=$PWD
 
 cd $HOME/dotfiles
 git pull >/dev/null 2>&1
+gpg --output - --decrypt secrets/gpg-pubkeyring.gpg | gpg --import
+gpg --output - --decrypt secrets/gpg-ownertrust.gpg | gpg --import-ownertrust
+
+gpg --export-ownertrust | gpg --batch --yes --output secrets/gpg-ownertrust.gpg --sign --encrypt
+gpg --export | gpg --batch --yes --output secrets/gpg-pubkeyring.gpg --sign --encrypt
+
+gpg --batch --yes --output secrets/pass.gpg --sign --encrypt secrets/keepass.kdb
+
+git add secrets/gpg-pubkeyring.gpg secrets/gpg-ownertrust.gpg secrets/pass.gpg
+git commit -S -m "Automatic dotupdate $(date)"
+git push
 
 cd $OLDWD
 
