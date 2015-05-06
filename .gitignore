@@ -1,6 +1,6 @@
 # Ignore temp files
 .~
-
+*.lock
 # Node thingies
 npm-debug.log
 
