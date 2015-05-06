@@ -22,7 +22,7 @@ export LANG="en_US.UTF-8"
 
 source $HOME/dotfiles/zsh/aliases
 
-PATH=$PATH:$HOME/scripts
-
+export PATH=$PATH:$HOME/scripts:$HOME/go1.4/bin
+export GOPATH=$HOME/gopkg
 # Run login script
 $HOME/.loginscript
