@@ -1,0 +1,7 @@
+export XDG_CONFIG_HOME=~/.config
+gpg-agent --daemon --enable-ssh-support --write-env-file /tmp/gpg-agent-info
+sed -i 's/SSH_/export SSH_/g' /tmp/gpg-agent-info
+sed -i 's/GPG_/export GPG_/g' /tmp/gpg-agent-info
+sh /tmp/gpg-agent-info
+wicd-gtk -t &
+keepassx -min -lock &

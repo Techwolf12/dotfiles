@@ -11,7 +11,7 @@ ZSH_THEME="techwolf"
 DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load?
-plugins=(git debian common-aliases encode64 npm nyan wd)
+plugins=(git debian common-aliases encode64 npm nyan wd battery ssh-agent gpg-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -24,5 +24,6 @@ source $HOME/dotfiles/zsh/aliases
 
 export PATH=$PATH:$HOME/scripts:$HOME/go1.4/bin
 export GOPATH=$HOME/gopkg
+ssh-add
 # Run login script
 $HOME/.loginscript
