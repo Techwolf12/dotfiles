@@ -1,17 +1,17 @@
 #!/bin/bash
 
 OLDWD=$PWD
-
 cd $HOME/dotfiles
 git pull >/dev/null 2>&1
 
 # Import gpg data (might be refreshed on other pc's)
-gpg --output - --decrypt secrets/gpg-pubkeyring.gpg | gpg --import
-gpg --output - --decrypt secrets/gpg-ownertrust.gpg | gpg --import-ownertrust
+gpg --output -  --decrypt secrets/gpg-pubkeyring.gpg | gpg --import
+gpg --output -  --decrypt secrets/gpg-ownertrust.gpg | gpg --import-ownertrust
 
+gpg --refresh-keys
 # Export the data
 gpg --export-ownertrust | gpg --batch --yes --output secrets/gpg-ownertrust.gpg --sign --encrypt
-gpg --export | gpg --batch --yes --output secrets/gpg-pubkeyring.gpg --sign --encrypt
+gpg --export | gpg --batch --yes  --output secrets/gpg-pubkeyring.gpg --sign --encrypt
 gpg -a --batch --yes --output gnupg/2F2546D8.asc --export 0x2F2546D8
 
 # Password database

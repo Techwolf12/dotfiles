@@ -37,6 +37,7 @@ alias kcs="kill -9 $$"
 # Get your outer IP address.
 alias ip="curl icanhazip.com"
 
+alias ix="curl -F 'f:1=<-' ix.io"
 alias curl="curl -s -S"
 
 alias openports="nmap portquiz.net"
