@@ -74,20 +74,20 @@ theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/defau
 theme.wallpaper_cmd = { "awsetbg /home/techwolf12/.config/awesome/tech/background.png" }
 
 -- You can use your own layout icons like this:
-theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
-theme.layout_fairv = "/usr/share/awesome/themes/default/layouts/fairvw.png"
-theme.layout_floating  = "/usr/share/awesome/themes/default/layouts/floatingw.png"
-theme.layout_magnifier = "/usr/share/awesome/themes/default/layouts/magnifierw.png"
-theme.layout_max = "/usr/share/awesome/themes/default/layouts/maxw.png"
-theme.layout_fullscreen = "/usr/share/awesome/themes/default/layouts/fullscreenw.png"
-theme.layout_tilebottom = "/usr/share/awesome/themes/default/layouts/tilebottomw.png"
-theme.layout_tileleft   = "/usr/share/awesome/themes/default/layouts/tileleftw.png"
-theme.layout_tile = "/usr/share/awesome/themes/default/layouts/tilew.png"
-theme.layout_tiletop = "/usr/share/awesome/themes/default/layouts/tiletopw.png"
-theme.layout_spiral  = "/usr/share/awesome/themes/default/layouts/spiralw.png"
-theme.layout_dwindle = "/usr/share/awesome/themes/default/layouts/dwindlew.png"
+theme.layout_fairh = "/home/techwolf12/.config/awesome/tech/layouts/fairhw.png"
+theme.layout_fairv = "/home/techwolf12/.config/awesome/tech/layouts/fairvw.png"
+theme.layout_floating  = "/home/techwolf12/.config/awesome/tech/layouts/floatingw.png"
+theme.layout_magnifier = "/home/techwolf12/.config/awesome/tech/layouts/magnifierw.png"
+theme.layout_max = "/home/techwolf12/.config/awesome/tech/layouts/maxw.png"
+theme.layout_fullscreen = "/home/techwolf12/.config/awesome/tech/layouts/fullscreenw.png"
+theme.layout_tilebottom = "/home/techwolf12/.config/awesome/tech/layouts/tilebottomw.png"
+theme.layout_tileleft   = "/home/techwolf12/.config/awesome/tech/layouts/tileleftw.png"
+theme.layout_tile = "/home/techwolf12/.config/awesome/tech/layouts/tilew.png"
+theme.layout_tiletop = "/home/techwolf12/.config/awesome/tech/layouts/tiletopw.png"
+theme.layout_spiral  = "/home/techwolf12/.config/awesome/tech/layouts/spiralw.png"
+theme.layout_dwindle = "/home/techwolf12/.config/awesome/tech/layouts/dwindlew.png"
 
-theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
+theme.awesome_icon = "/home/techwolf12/.config/awesome/tech/awesome16.png"
 
 return theme
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
