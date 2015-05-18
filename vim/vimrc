@@ -101,6 +101,7 @@ set number                      " set line numbers
 
 noremap <F3> :Autoformat<CR><CR>
 let g:mapleader = '\'
+let g:gitgutter_max_signs = 1000  " default value
 
 if !exists(":W")
     command W w                     " use W to (w)rite
