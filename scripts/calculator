@@ -6,91 +6,91 @@ console.log("####\n## Program: Calculator\n## Author: Christiaan de Die le Clerc
 
 function evalOwn(cmd, context, filename, callback) {
 
-function isInteger(input) {
-	if (input == Math.floor(input)) {
-		return true;
-	} else {
-		return false;
-	}
-}
+    function isInteger(input) {
+        if (input == Math.floor(input)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-function isNatural(input) {
-	if ((input > 0) && (Math.floor(input) == input)) {
-		return true;
-	} else {
-		return false;
-	}
-}
+    function isNatural(input) {
+        if ((input > 0) && (Math.floor(input) == input)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-function isDivisor(dividend, divisor) {
-	if (isInteger(dividend / divisor)) {
-		return true;
-	} else {
-		return false;
-	}
-}
+    function isDivisor(dividend, divisor) {
+        if (isInteger(dividend / divisor)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-function divisors(input) {
-	var result = [];
-	result.push(1);
-	for (i = 2; i < input; i++) {
-		if (isDivisor(input, i)) {
-			result.push(i);
-		}
-	}
-	result.push(input);
-	return result;
-}
+    function divisors(input) {
+        var result = [];
+        result.push(1);
+        for (i = 2; i < input; i++) {
+            if (isDivisor(input, i)) {
+                result.push(i);
+            }
+        }
+        result.push(input);
+        return result;
+    }
 
-function getHighestDivisor(a, b) {
-	var temp = 0,
-		divisor, result;
-	for (i = a; i < b; i++) {
-		divisor = divisors(i).length;
-		if (divisor > temp) {
-			result = i;
-			temp = divisor;
-		}
-	}
-	return result;
-}
+    function getHighestDivisor(a, b) {
+        var temp = 0,
+            divisor, result;
+        for (i = a; i < b; i++) {
+            divisor = divisors(i).length;
+            if (divisor > temp) {
+                result = i;
+                temp = divisor;
+            }
+        }
+        return result;
+    }
 
-function Ratio(dividend, divisor) {
-	this.dividend = dividend;
-	this.divisor = divisor;
-}
+    function Ratio(dividend, divisor) {
+        this.dividend = dividend;
+        this.divisor = divisor;
+    }
 
-function addRatio(a, b) {
-	var dividend = (a.divisor * b.dividend) + (b.divisor * a.dividend);
-	var divisor = a.divisor * b.divisor;
-	var result = new Ratio(dividend, divisor);
-	return result;
-}
+    function addRatio(a, b) {
+        var dividend = (a.divisor * b.dividend) + (b.divisor * a.dividend);
+        var divisor = a.divisor * b.divisor;
+        var result = new Ratio(dividend, divisor);
+        return result;
+    }
 
-function GCD(a, b) {
-	var aArray = divisors(a);
-	var bArray = divisors(b);
-	var result, temp, temp2;
-	for (var i = 0; i < Math.max(aArray.length, bArray.length); i++) {
-		if (bArray.indexOf(aArray[i]) != -1) {
-			result = aArray[i];
-		}
-	};
-	return result;
-}
+    function GCD(a, b) {
+        var aArray = divisors(a);
+        var bArray = divisors(b);
+        var result, temp, temp2;
+        for (var i = 0; i < Math.max(aArray.length, bArray.length); i++) {
+            if (bArray.indexOf(aArray[i]) != -1) {
+                result = aArray[i];
+            }
+        };
+        return result;
+    }
 
-function help() {
-	console.log("Available commands:\nTODO!");
-}
+    function help() {
+        console.log("Available commands:\nTODO!");
+    }
 
-  callback(null, eval(cmd));
+    callback(null, eval(cmd));
 }
 
 repl.start({
-        prompt: "Calculator> ",
-        input: process.stdin,
-        output: process.stdout,
-	eval: evalOwn,
-        ignoreUndefined: true
+prompt: "Calculator> ",
+input: process.stdin,
+output: process.stdout,
+eval: evalOwn,
+ignoreUndefined: true
 });
 

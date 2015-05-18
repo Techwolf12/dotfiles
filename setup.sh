@@ -15,25 +15,25 @@ ORIGINAL_MUTTRC=$HOME/.muttrc
 ORIGINAL_AWESOME=$HOME/.config/awesome
 ORIGINAL_IRSSI=$HOME/.irssi/irssi.conf
 PACKAGES=(
-    vim irssi libreoffice git curl gawk firefox firefox-l10n-en-gb thunderbird thunderbird-l10n-en-gb tig tree htop build-essential cmake synapse scrot i3lock zsh newrelic-sysmond chromium-browser spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unzip ipython python3 qalculate openssh-server imagemagick lxappearance pipelight-multi dropbox openjdk-7-jre openjdk-7-jdk shutter nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g awesome
+vim irssi libreoffice git curl gawk firefox firefox-l10n-en-gb thunderbird thunderbird-l10n-en-gb tig tree htop build-essential cmake synapse scrot i3lock zsh newrelic-sysmond chromium-browser spotify-client gparted gnupg pcscd libccid audacity powertop zip xclip vlc valgrind unzip ipython python3 qalculate openssh-server imagemagick lxappearance pipelight-multi dropbox openjdk-7-jre openjdk-7-jdk shutter nano keepassx ctags python3-numpy nmap python-appindicator ntfs-3g awesome
 )
 
 # Move all original files to a backup dir.
 mkdir -p $BACKUP_DIR
 mv \
-$ORIGINAL_BASHRC \
-$ORIGINAL_IRSSI \
-$ORIGINAL_ZSHRC \
-$ORIGINAL_DIRCOLORS \
-$ORIGINAL_PROFILE \
-$ORIGINAL_XPROFILE \
-$ORIGINAL_GITCONFIG \
-$ORIGINAL_GNUPGCONF \
-$ORIGINAL_AWESOME \
-$ORIGINAL_VIMRC	\
-$ORIGINAL_FONTS \
-$ORIGINAL_MUTTRC \
-$BACKUP_DIR
+    $ORIGINAL_BASHRC \
+    $ORIGINAL_IRSSI \
+    $ORIGINAL_ZSHRC \
+    $ORIGINAL_DIRCOLORS \
+    $ORIGINAL_PROFILE \
+    $ORIGINAL_XPROFILE \
+    $ORIGINAL_GITCONFIG \
+    $ORIGINAL_GNUPGCONF \
+    $ORIGINAL_AWESOME \
+    $ORIGINAL_VIMRC	\
+    $ORIGINAL_FONTS \
+    $ORIGINAL_MUTTRC \
+    $BACKUP_DIR
 
 # Ensures all directories are existing
 mkdir -p $HOME/.vim $HOME/.git $HOME/.gnupg $HOME/.irssi $HOME/.config/awesome

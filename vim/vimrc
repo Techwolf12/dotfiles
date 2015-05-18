@@ -59,6 +59,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'Chiel92/vim-autoformat'
 
 call vundle#end()
 
@@ -82,6 +83,7 @@ set smarttab
 
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set ruler                       " display the current cursor position in bottomleft
+set magic                       " Regular expressions
 set showcmd                     " display incomplete commands
 set history=50                  " keep 50 commands 50 patterns in the history
 set incsearch                   " do incremental searching
@@ -90,13 +92,14 @@ set hidden                      " Hides current buffer on opening a new file ins
 set history=1000                " remember more commands and search history
 set undolevels=1000             " use many muchos levels of undo
 set title                       " change the terminal's title
-set visualbell                  " don't beep
+set titlestring=%t:%l%r%m
 set noerrorbells                " don't beep
 set laststatus=2                " always show the statusbar.
 set t_Co=256                    " set color scheme to 256
 set nobackup                    " set no backups
 set number                      " set line numbers
 
+noremap <F3> :Autoformat<CR><CR>
 let g:mapleader = '\'
 
 if !exists(":W")

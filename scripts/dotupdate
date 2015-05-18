@@ -2,7 +2,7 @@
 
 OLDWD=$PWD
 cd $HOME/dotfiles
-git pull >/dev/null 2>&1
+git pull
 
 # Import gpg data (might be refreshed on other pc's)
 gpg --output -  --decrypt secrets/gpg-pubkeyring.gpg | gpg --import

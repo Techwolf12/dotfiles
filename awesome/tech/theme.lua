@@ -32,12 +32,12 @@ theme.border_marked = "#91231c"
 --theme.taglist_bg_focus = "#ff0000"
 
 -- Display the taglist squares
-theme.taglist_squares_sel   = "/usr/share/awesome/themes/default/taglist/squarefw.png"
-theme.taglist_squares_unsel = "/usr/share/awesome/themes/default/taglist/squarew.png"
+theme.taglist_squares_sel   = "/home/techwolf12/.config/awesome/tech/taglist/squarefw.png"
+theme.taglist_squares_unsel = "/home/techwolf12/.config/awesome/tech/taglist/squarew.png"
 
-theme.tasklist_floating_icon = "/usr/share/awesome/themes/default/tasklist/floatingw.png"
+theme.tasklist_floating_icon = "/home/techwolf12/.config/awesome/tech/tasklist/floatingw.png"
 
-theme.menu_submenu_icon = "/usr/share/awesome/themes/default/submenu.png"
+theme.menu_submenu_icon = "/home/techwolf12/.config/awesome/tech/submenu.png"
 theme.menu_height = "15"
 theme.menu_width  = "100"
 
