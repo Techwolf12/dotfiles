@@ -15,6 +15,9 @@ Plugin 'gmarik/vundle.vim'
 " Syntax checker
 Plugin 'Syntastic'
 
+" Enable utf8
+set encoding=utf8
+set termencoding=utf-8
 scriptencoding utf-8
 let g:syntastic_error_symbol='✗✗'
 let g:syntastic_style_error_symbol='✗✗'
@@ -30,7 +33,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tComment'
-
+Plugin 'vim-snippets'
 Plugin 'bling/vim-airline'
 " Change the powerline icons to the correct terms.
 let g:airline_powerline_fonts = 1
