@@ -23,6 +23,8 @@ alias please='sudo'
 alias fucking='sudo'
 alias down="please shutdown -h now"
 
+# Our GNU man!
+alias rms='chromium --incognito --app=https://rms.sexy/'
 
 # Stolen from Mirko (again yes)
 # Merge the .Xresources file after we worked with it.
