@@ -1,9 +1,11 @@
 [user]
 	email = christiaan@droiddev.nl
 	name = techwolf12
-        signingkey = 2F2546D8
+    signingkey = 2F2546D8
 [push]
 	default = matching
 [core]
 	autocrlf = input
 	editor = vim
+[commit]
+	gpgsign = true
