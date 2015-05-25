@@ -8,7 +8,7 @@ git pull
 gpg --output - --decrypt secrets/gpg-pubkeyring.gpg | gpg --import
 gpg --output - --decrypt secrets/gpg-ownertrust.gpg | gpg --import-ownertrust
 
-gpg --keyserver hkp://keys.techwolf12.nl:80/ --refresh-keys
+gpg --keyserver hkp://keys.techwolf12.nl/ --refresh-keys
 # Export the data
 gpg --export-ownertrust | gpg --batch --yes --output secrets/gpg-ownertrust.gpg --sign --encrypt
 gpg --export | gpg --batch --yes  --output secrets/gpg-pubkeyring.gpg --sign --encrypt
