@@ -9,3 +9,10 @@
 	editor = vim
 [commit]
 	gpgsign = true
+[color]
+    ui = true
+[alias]
+    l = log --no-merges --show-signature
+    m = checkout master
+    acp = !git add -A && git commit && git push
+    unadd = git reset HEAD
