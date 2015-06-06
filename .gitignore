@@ -10,3 +10,5 @@ rc_backup/
 # Secrets
 secrets/secrets.sh
 keepass.kdb
+
+background.png
