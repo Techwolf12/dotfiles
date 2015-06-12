@@ -43,3 +43,4 @@ alias ix="curl -F 'f:1=<-' ix.io"
 alias curl="curl -s -S"
 
 alias openports="nmap portquiz.net"
+alias music=ncmpc
