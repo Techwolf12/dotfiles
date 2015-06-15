@@ -8,13 +8,10 @@ alias mv='mv -i'
 # Custom git
 alias gittime='git log -5 --format="%cd"'
 alias gitl='git log --graph --abbrev-commit --pretty=oneline --decorate'
-alias gitaddcommitpullpush='git add . && git commit -a && git pull && git push'
-alias gitc='git commit -S'
 
 # Programs
 alias vlcplay='vlc -f --no-video-title-show --no-osd --play-and-exit -q'
 alias sshproxy='ssh -Nn -D 1080'
-alias radiodecode='multimon | grep "DTMF\|CCIR\|AFSK"'
 alias gpge='gpg --armor --encrypt --sign'
 alias gpgs='gpg --clearsign'
 
@@ -43,4 +40,4 @@ alias ix="curl -F 'f:1=<-' ix.io"
 alias curl="curl -s -S"
 
 alias openports="nmap portquiz.net"
-alias music=ncmpc
+alias music="ncmpc"
