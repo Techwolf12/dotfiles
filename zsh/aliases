@@ -30,9 +30,6 @@ alias rms='chromium --incognito --app=https://rms.sexy/'
 # Merge the .Xresources file after we worked with it.
 alias xmerge="xrdb -merge ~/.Xresources"
 
-# Rebind ls to show colors and premissions.
-alias ls="ls -aG --color=auto"
-
 # Kill current shell (Leaves no trace of commands.)
 alias kcs="kill -9 $$"
 
