@@ -191,12 +191,12 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "j",
         function ()
-            awful.client.focus.byidx( 1)
+            awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "k",
         function ()
-            awful.client.focus.byidx(-1)
+            awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
@@ -225,8 +225,7 @@ globalkeys = awful.util.table.join(
     awful.key({}, "#122", function () awful.util.spawn("amixer -c 0 set Master 5%-") end),
     awful.key({}, "#123", function () awful.util.spawn("amixer -c 0 set Master 5%+") end),
     awful.key({}, "#121", function () awful.util.spawn("amixer -D pulse set Master 1+ toggle") end),
-    awful.key({}, "#107", function () awful.util.spawn_with_shell("pomf -s") end),
-    awful.key({}, "#84", function () awful.util.spawn_with_shell("acpi -i -b >/tmp/battery") end),
+    awful.key({}, "Print", function () awful.util.spawn_with_shell("scrot -s /tmp/screen.png ") end),
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
     awful.key({ modkey }, "x",

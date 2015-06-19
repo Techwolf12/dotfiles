@@ -3,6 +3,7 @@ gpg-agent --daemon --enable-ssh-support --write-env-file /tmp/gpg-agent-info
 sed -i 's/SSH_/export SSH_/g' /tmp/gpg-agent-info
 sed -i 's/GPG_/export GPG_/g' /tmp/gpg-agent-info
 sh /tmp/gpg-agent-info
-wicd-gtk -t &
+nm-applet &
+blueman-applet &
 keepassx -min -lock &
 skype &
