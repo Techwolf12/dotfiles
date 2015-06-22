@@ -5,10 +5,6 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-# Custom git
-alias gittime='git log -5 --format="%cd"'
-alias gitl='git log --graph --abbrev-commit --pretty=oneline --decorate'
-
 # Programs
 alias vlcplay='vlc -f --no-video-title-show --no-osd --play-and-exit -q'
 alias sshproxy='ssh -Nn -D 1080'
