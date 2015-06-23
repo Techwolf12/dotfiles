@@ -8,18 +8,23 @@ git pull
 gpg --output - --decrypt secrets/gpg-pubkeyring.gpg | gpg --import
 gpg --output - --decrypt secrets/gpg-ownertrust.gpg | gpg --import-ownertrust
 
-gpg --keyserver hkp://keys.techwolf12.nl:80/ --refresh-keys
-# Export the data
+gpg --keyserver hkp://keys.techwolf12.nl/ --refresh-keys
+
+# Export the data again
 gpg --export-ownertrust | gpg --batch --yes --output secrets/gpg-ownertrust.gpg --sign --encrypt
 gpg --export | gpg --batch --yes  --output secrets/gpg-pubkeyring.gpg --sign --encrypt
 gpg -a --batch --yes --output gnupg/2F2546D8.asc --export 0x2F2546D8
 
-# Password database
+# Password database (still need to find a merge way before pulling that)
 gpg --batch --yes --output secrets/pass.gpg --sign --encrypt secrets/keepass.kdb
 
 git add secrets/gpg-pubkeyring.gpg secrets/gpg-ownertrust.gpg secrets/pass.gpg gnupg/2F2546D8.asc
 git commit -S -m "Automatic dotupdate $(date +"%m-%d-%Y %r")"
 git push
+
+# Back to typing
+gpg --card-edit / admin forcesig quit
+
 
 cd $OLDWD
 

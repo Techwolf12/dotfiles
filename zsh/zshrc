@@ -24,6 +24,8 @@ source $HOME/dotfiles/zsh/aliases
 
 export PATH=$PATH:$HOME/scripts:$HOME/go1.4/bin
 export GOPATH=$HOME/gopkg
-ssh-add
+
+# SSH
+/tmp/gpg-agent-info
 # Run login script
 $HOME/.loginscript
