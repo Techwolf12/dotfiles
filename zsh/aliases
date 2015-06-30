@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Aliases to not delete everything
 alias rm='rm -i'
@@ -34,3 +34,4 @@ alias curl="curl -s -S"
 
 alias openports="nmap portquiz.net"
 alias music="ncmpc"
+alias termbin="nc termbin.com 9999"
