@@ -34,4 +34,4 @@ alias curl="curl -s -S"
 
 alias openports="nmap portquiz.net"
 alias music="ncmpc"
-alias termbin="nc termbin.com 9999"
+alias t="nc techwolf12.nl 9999"
