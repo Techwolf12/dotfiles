@@ -35,3 +35,5 @@ alias curl="curl -s -S"
 alias openports="nmap portquiz.net"
 alias music="ncmpc"
 alias t="nc techwolf12.nl 9999"
+alias mkdir='mkdir -pv'
+alias df='df -H'
