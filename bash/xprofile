@@ -1,6 +1,7 @@
+#!/bin/bash
 export XDG_CONFIG_HOME=$HOME/.config
 pkill gpg-agent
-gpg-agent --daemon --enable-ssh-support --write-env-file /tmp/gpg-agent-info
+#gpg-agent --daemon --enable-ssh-support --write-env-file /tmp/gpg-agent-info
 sed -i 's/SSH_/export SSH_/g' /tmp/gpg-agent-info
 sed -i 's/GPG_/export GPG_/g' /tmp/gpg-agent-info
 chmod a+x /tmp/gpg-agent-info

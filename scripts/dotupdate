@@ -13,8 +13,8 @@ git pull
 #gpg --keyserver hkp://keys.techwolf12.nl/ --refresh-keys
 
 # Export the data again
-gpg --export-ownertrust | gpg --batch --yes --output secrets/gpg-ownertrust.gpg --sign --encrypt
-gpg --export | gpg --batch --yes  --output secrets/gpg-pubkeyring.gpg --sign --encrypt
+#gpg --export-ownertrust | gpg --batch --yes --output secrets/gpg-ownertrust.gpg --sign --encrypt
+#gpg --export | gpg --batch --yes  --output secrets/gpg-pubkeyring.gpg --sign --encrypt
 gpg -a --batch --yes --output gnupg/2F2546D8.asc --export 0x2F2546D8
 
 # Password database (still need to find a merge way before pulling that)
