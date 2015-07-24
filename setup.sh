@@ -62,10 +62,6 @@ sudo dpkg --add-architecture i386
 sudo add-apt-repository "deb http://repository.spotify.com stable non-free"
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
 
-# Pipelight
-wget -O- http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Debian_7.0/Release.key | sudo apt-key add -
-sudo apt-add-repository "deb http://download.opensuse.org/repositories/home:/DarkPlayer:/Pipelight/Debian_7.0/ ./"
-
 # Newrelic
 sudo add-apt-repository "deb http://apt.newrelic.com/debian/ newrelic non-free"
 wget -O- https://download.newrelic.com/548C16BF.gpg | sudo apt-key add -
@@ -82,9 +78,6 @@ sudo apt-add-repository "deb http://packages.linuxmint.com debian import"
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 3EE67F3D0FF405B2
 sudo apt-get remove --purge iceweasel
 
-# Own key
-sudo apt-key adv --keyserver hkp://keys.techwolf12.nl:80/ --recv-keys 2F2546D8
-sudo apt-key adv --keyserver hkp://keys.techwolf12.nl:80/ --recv-keys 593E5934
 # Instarr packages
 
 sudo apt-get update
@@ -94,15 +87,13 @@ do
     sudo apt-get --yes --force-yes install $i
 done
 
-sudo pipelight-plugin --enable silverlight
-
 # Zsh
 chsh -s /bin/zsh
 
 # Gnome-keyring-daemon fix
 sudo mv /etc/xdg/autostart/gnome-keyring-gpg.desktop /etc/xdg/autostart/gnome-keyring-gpg.desktop.disabled
 sudo mv /etc/xdg/autostart/gnome-keyring-ssh.desktop /etc/xdg/autostart/gnome-keyring-ssh.desktop.disabled
-sudo pkill gnome-keyring-daemon
+sudo pkill gnome-keyring-d
 
 # Add certificates
 sudo mkdir /usr/share/ca-certificates/CA
