@@ -5,16 +5,16 @@ cd $HOME/dotfiles
 git pull
 
 
-# GPG is not working well, commented out
 # Import gpg data (might be refreshed on other pc's)
 #gpg --output - --decrypt secrets/gpg-pubkeyring.gpg | gpg --import
 #gpg --output - --decrypt secrets/gpg-ownertrust.gpg | gpg --import-ownertrust
 
-#gpg --keyserver hkp://keys.techwolf12.nl/ --refresh-keys
+gpg --keyserver hkp://keys.techwolf12.nl/ --refresh-keys
 
 # Export the data again
-#gpg --export-ownertrust | gpg --batch --yes --output secrets/gpg-ownertrust.gpg --sign --encrypt
-#gpg --export | gpg --batch --yes  --output secrets/gpg-pubkeyring.gpg --sign --encrypt
+gpg --export-ownertrust | gpg --batch --yes --output secrets/gpg-ownertrust.gpg --sign --encrypt
+gpg -a --output /tmp/pubkeys.asc --export
+gpg --batch --yes --output secrets/gpg-pubkeyring.gpg --sign --encrypt /tmp/pubkeys.asc
 gpg -a --batch --yes --output gnupg/2F2546D8.asc --export 0x2F2546D8
 
 # Password database (still need to find a merge way before pulling that)
