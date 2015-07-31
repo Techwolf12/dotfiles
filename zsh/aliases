@@ -38,3 +38,4 @@ alias t="nc techwolf12.nl 9999"
 alias mkdir='mkdir -pv'
 alias df='df -H'
 alias vir='vim -R'
+alias intip="/sbin/ifconfig | grep 'inet addr:' | sed '/127.0.0.1/d' | cut -d: -f2 | awk '{ print $1}'"
