@@ -24,5 +24,11 @@ git add secrets/gpg-pubkeyring.gpg secrets/gpg-ownertrust.gpg secrets/pass.gpg g
 git commit -S -m "Automatic dotupdate $(date +"%m-%d-%Y %r")"
 git push
 
-cd $OLDWD
 
+if [ -d /home/techwolf12/scripts ] ; then
+    for file in /home/techwolf12/scripts/*; do
+        sudo ln -sf $file /usr/bin/.;
+    done
+fi
+
+cd $OLDWD
