@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 if [ -n ps ax | grep -v grep | grep 'i3lock' ]; then
     echo "i3 lock is already running"
 else
@@ -8,7 +8,9 @@ if [ $1 -eq 1 ] ; then
 else
     scrot /tmp/screenshot.png
     convert /tmp/screenshot.png -blur 0x5 /tmp/screenshotblur.png
+    rm -f /tmp/screenshot.png
     i3lock -b -t -i /tmp/screenshotblur.png
+    rm -f /tmp/screenshotblur.png
 fi
 fi
 

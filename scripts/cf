@@ -34,8 +34,8 @@ if [ $? != 0 ]; then exit 1 ; fi
 eval set -- "$FLAGS"
 
 URL="1339.cf"
-IMG=$HOME/Pictures/sceenshots
-LOG=$HOME/Pictures/scheenshots/url.list
+IMG=$HOME/Pictures/screenshots
+LOG=$HOME/Pictures/screenshots/url.list
 
 while true; do
     case "$1" in
