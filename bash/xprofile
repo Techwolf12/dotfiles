@@ -6,6 +6,5 @@ sed -i 's/SSH_/export SSH_/g' /tmp/gpg-agent-info
 sed -i 's/GPG_/export GPG_/g' /tmp/gpg-agent-info
 chmod a+x /tmp/gpg-agent-info
 nm-applet &
-blueman-applet &
 rm -f $HOME/dotfiles/secrets/keepass.kdb.lock
 keepassx -min -lock &
