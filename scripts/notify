@@ -7,6 +7,13 @@ import sys
 
 notify2.init("Tech's Notifier")
 
-n = notify2.Notification(sys.argv[1], sys.argv[2])
+if sys.argv[1] == "f":
+    with open(sys.argv[3], "r") as f:
+        content = f.read()
+    n = notify2.Notification(sys.argv[2], content)
+
+else:
+    n = notify2.Notification(sys.argv[1], sys.argv[2])
+
 n.show()
 
