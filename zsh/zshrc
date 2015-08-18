@@ -21,9 +21,17 @@ export PATH="/root/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 export LANG="en_US.UTF-8"
 
 source $HOME/dotfiles/zsh/aliases
-
+# Languages
+## Go
 export PATH=$PATH:$HOME/scripts:$HOME/go1.4/bin
 export GOPATH=$HOME/gopkg
+## Perl
+PATH="/home/techwolf12/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/home/techwolf12/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/techwolf12/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/techwolf12/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/techwolf12/perl5"; export PERL_MM_OPT;
+
 
 export DOTFILES=$HOME/dotfiles
 # SSH
