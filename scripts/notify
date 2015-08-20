@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """
-
+Author: Christiaan de Die le Clercq (@techwolf12) <contact@techwolf12.nl>
+License: GPL v3 or later at your choice
 """
 import notify2
 import sys
