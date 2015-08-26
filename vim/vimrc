@@ -27,13 +27,12 @@ let g:syntastic_check_on_open=1
 
 colorscheme darkblue
 Plugin 'scrooloose/nerdtree'
-map <F7> :NERDTreeToggle<CR>
+map <silent> <F7> :NERDTreeToggle<CR>
 
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tComment'
-Plugin 'vim-snippets'
 Plugin 'bling/vim-airline'
 " Change the powerline icons to the correct terms.
 let g:airline_powerline_fonts = 1
@@ -52,7 +51,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'dag/vim-fish'
 Plugin 'terryma/vim-multiple-cursors'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 " Syntax plugins
 Plugin 'hynek/vim-python-pep8-indent'
@@ -209,3 +208,6 @@ nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
+nmap <silent> Z :bp<CR>
+nmap <silent> X :bn<CR>
+nmap <silent> C :bd<CR>
