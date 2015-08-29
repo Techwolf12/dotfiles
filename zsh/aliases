@@ -16,13 +16,7 @@ alias please='sudo'
 alias fucking='sudo'
 alias down="please shutdown -h now"
 
-# Our GNU man!
-alias rms='chromium --incognito --app=https://rms.sexy/'
-
 # Stolen from Mirko (again yes)
-# Merge the .Xresources file after we worked with it.
-alias xmerge="xrdb -merge ~/.Xresources"
-
 # Kill current shell (Leaves no trace of commands.)
 alias kcs="kill -9 $$"
 
@@ -33,7 +27,7 @@ alias ix="curl -F 'f:1=<-' ix.io"
 alias curl="curl -s -S"
 
 alias openports="nmap portquiz.net"
-alias music="ncmpc"
+alias music="ncmpcpp"
 alias t="nc techwolf12.nl 9999"
 alias mkdir='mkdir -pv'
 alias df='df -H'
