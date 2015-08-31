@@ -4,6 +4,8 @@ OLDWD=$PWD
 cd $HOME/dotfiles
 git pull
 
+# No forced pins (prevents typing it 4 times)
+gpg --card-edit / admin forcesig quit
 
 # Import gpg data (might be refreshed on other pc's)
 #gpg --output - --decrypt secrets/gpg-pubkeyring.gpg | gpg --import
@@ -32,5 +34,8 @@ if [ -d /home/techwolf12/scripts ] ; then
         sudo ln -sf $file /usr/bin/.;
     done
 fi
+
+# Force the pins again
+gpg --card-edit / admin forcesig quit
 
 cd $OLDWD
