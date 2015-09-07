@@ -1,0 +1,3 @@
+[submodule "misc/ham/slowrx"]
+	path = misc/ham/slowrx
+	url = git@github.com:windytan/slowrx.git
