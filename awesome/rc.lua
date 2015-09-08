@@ -227,6 +227,7 @@ globalkeys = awful.util.table.join(
     awful.key({}, "#121", function () awful.util.spawn("amixer -D pulse set Master 1+ toggle") end),
     awful.key({ modkey }, "F3", function () awful.util.spawn("cf -ls") end),
     awful.key({ modkey }, "F2", function() awful.util.spawn("notify f Battery /tmp/battery") end),
+    awful.key({ modkey }, "F3", function() awful.util.spawn("notify f Fortune /tmp/fortune") end),
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
     awful.key({ modkey }, "x",
