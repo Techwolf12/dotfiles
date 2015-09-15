@@ -65,16 +65,6 @@ Plugin 'Chiel92/vim-autoformat'
 
 call vundle#end()
 
-if exists('+colorcolumn')
-    set colorcolumn=80             " Mark the 80 colomn
-end
-
-if &shell =~# 'fish$'
-    set shell=bash
-endif
-
-
-" Indenting like a boss
 set autoindent
 set smartindent
 set expandtab
@@ -211,3 +201,4 @@ nmap <silent> <A-Right> :wincmd l<CR>
 nmap <silent> Z :bp<CR>
 nmap <silent> X :bn<CR>
 nmap <silent> C :bd<CR>
+nmap <silent> <F6> ggg?G<CR>
