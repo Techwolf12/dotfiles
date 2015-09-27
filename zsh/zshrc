@@ -34,7 +34,5 @@ PERL_MM_OPT="INSTALL_BASE=/home/techwolf12/perl5"; export PERL_MM_OPT;
 
 
 export DOTFILES=$HOME/dotfiles
-# SSH
-/tmp/gpg-agent-info
 # Run login script
 $HOME/.loginscript
