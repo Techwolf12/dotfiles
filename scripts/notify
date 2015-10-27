@@ -8,7 +8,7 @@ import sys
 
 notify2.init("Tech's Notifier")
 
-if len(sys.argv) <= 2 or len(sys.argv) > 3:
+if len(sys.argv) <= 2 or len(sys.argv) > 4:
     n = notify2.Notification(raw_input(""), raw_input(""))
 else:
     if sys.argv[1] == "f":

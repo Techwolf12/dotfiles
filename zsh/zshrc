@@ -11,16 +11,17 @@ ZSH_THEME="techwolf"
 DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load?
-plugins=(git debian common-aliases encode64 npm nyan wd battery ssh-agent gpg-agent)
+plugins=(git debian common-aliases encode64 npm wd ssh-agent gpg-agent)
 
 source $ZSH/oh-my-zsh.sh
+compdef gpg2=gpg
 
 # User configuration
 
-export PATH="/root/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/"
+export PATH="/root/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/:/home/techwolf12/Programs/symlinks"
 export LANG="en_US.UTF-8"
-
 source $HOME/dotfiles/zsh/aliases
+
 # Languages
 ## Go
 export PATH=$PATH:$HOME/scripts:$HOME/go1.4/bin

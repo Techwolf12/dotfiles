@@ -6,6 +6,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+-- MPD
+vicious = require("vicious")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -41,7 +43,7 @@ beautiful.init("/home/techwolf12/.config/awesome/tech/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm -xrm 'XTerm*selectToClipboard: true'"
-editor = os.getenv("EDITOR") or "vim"
+editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -64,8 +66,8 @@ layouts =
 
 -- {{{ Tags
 tags = {
-    names  = { "Workspace ", "Terminals ", "Chat ", "Other " },
-    layout = { layouts[8], layouts[2], layouts[1], layouts[1]}
+    names  = { "Workspace ", "Terminals ", "Chat ", "Other ", "Dev " },
+    layout = { layouts[8], layouts[2], layouts[3], layouts[1], layouts[2]}
 }
 
 for s = 1, screen.count() do
@@ -225,9 +227,10 @@ globalkeys = awful.util.table.join(
     awful.key({}, "#122", function () awful.util.spawn("amixer -c 0 set Master 5%-") end),
     awful.key({}, "#123", function () awful.util.spawn("amixer -c 0 set Master 5%+") end),
     awful.key({}, "#121", function () awful.util.spawn("amixer -D pulse set Master 1+ toggle") end),
-    awful.key({ modkey }, "F4", function () awful.util.spawn("cf -ls") end),
+    awful.key({ modkey }, "F4", function() awful.util.spawn("cf -ls | tee /tmp/log.txt") end),
     awful.key({ modkey }, "F2", function() awful.util.spawn("notify f Battery /tmp/battery") end),
     awful.key({ modkey }, "F3", function() awful.util.spawn("notify f Fortune /tmp/fortune") end),
+    awful.key({ modkey }, "F10", function() awful.util.spawn("sudo shutdown -h now") end),
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
     awful.key({ modkey }, "x",

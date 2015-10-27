@@ -23,7 +23,7 @@ alias kcs="kill -9 $$"
 # Get your outer IP address.
 alias ip="curl icanhazip.com"
 
-alias ix="curl -F 'f:1=<-' ix.io"
+alias ix="curl -n -F 'f:1=<-' ix.io"
 alias curl="curl -s -S"
 
 alias openports="nmap portquiz.net"
@@ -34,3 +34,5 @@ alias df='df -H'
 alias vir='vim -R'
 alias intip="/sbin/ifconfig | grep 'inet addr:' | sed '/127.0.0.1/d' | cut -d: -f2 | awk '{ print $1}'"
 alias cordova="phonegap cordova"
+alias apt-get="sudo apt-get"
+alias gpg="gpg2"

@@ -10,5 +10,6 @@ rc_backup/
 # Secrets
 secrets/secrets.sh
 keepass.kdb
+android.jks
 
 background.png

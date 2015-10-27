@@ -25,7 +25,7 @@ let g:syntastic_warning_symbol='⚠⚠'
 let g:syntastic_style_warning_symbol='⚠⚠'
 let g:syntastic_check_on_open=1
 
-colorscheme darkblue
+colorscheme tech
 Plugin 'scrooloose/nerdtree'
 map <silent> <F7> :NERDTreeToggle<CR>
 
@@ -45,13 +45,12 @@ set ttimeoutlen=50              " Stop the delay in airline when leaving insertm
 
 Plugin 'majutsushi/tagbar'
 map <F8> :Tagbar<CR>
-highlight TagbarHighlight term=underline ctermfg=130 ctermbg=0 guifg=Brown
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'dag/vim-fish'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 " Syntax plugins
 Plugin 'hynek/vim-python-pep8-indent'
@@ -150,11 +149,6 @@ endif
 
 "ignore *.ext files
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.so,*.a,*.lib,*.obj,*.png,*.jpg,*.gif,*.dll,*.pdf
-
-highlight ColorColumn ctermbg=DarkGray
-highlight LineNr ctermbg=Black
-highlight SignColumn ctermbg=black
-highlight Search term=reverse cterm=bold
 
 " Highlight merge conflict markers
 "match Todo '\v^(\<|\=|\>){7}([^=].+)?$'
