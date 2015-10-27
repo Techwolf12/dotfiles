@@ -1,0 +1,2 @@
+#!/bin/bash
+curl -n -d 'post=true' http://domotica.techwolf12.nl:8000/GPIO/$1/value/$2
