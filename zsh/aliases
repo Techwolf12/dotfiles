@@ -36,3 +36,6 @@ alias intip="/sbin/ifconfig | grep 'inet addr:' | sed '/127.0.0.1/d' | cut -d: -
 alias cordova="phonegap cordova"
 alias apt-get="sudo apt-get"
 alias gpg="gpg2"
+# Debian packaging
+alias dquilt="quilt ­­quiltrc=${HOME}/.quiltrc­dpkg"
+complete ­F _quilt_completion $_quilt_complete_opt dquilt
