@@ -4,14 +4,11 @@ OLDWD=$PWD
 cd $HOME/dotfiles
 git pull
 
-# No forced pins (prevents typing it 4 times)
-gpg --card-edit / admin forcesig quit
-
 # Import gpg data (might be refreshed on other pc's)
 #gpg --output - --decrypt secrets/gpg-pubkeyring.gpg | gpg --import
 #gpg --output - --decrypt secrets/gpg-ownertrust.gpg | gpg --import-ownertrust
 
-gpg --keyserver hkp://keys.techwolf12.nl/ --refresh-keys
+gpg --keyserver hkp://pool.sks-keyservers.net/ --refresh-keys
 
 # Export the data again
 gpg --export-ownertrust | gpg --batch --yes --output secrets/gpg-ownertrust.gpg --sign --encrypt
@@ -19,12 +16,17 @@ gpg -a --output /tmp/pubkeys.asc --export
 gpg --batch --yes --output secrets/gpg-pubkeyring.gpg --sign --encrypt /tmp/pubkeys.asc
 gpg -a --batch --yes --output gnupg/2F2546D8.asc --export 0x2F2546D8
 
-# Password database (still need to find a merge way before pulling that)
+# Upload the GnuPG key to techwolf12.nl
+echo "cd web/keys\nput gnupg/2F2546D8.asc 2F2546D8.asc\nbye" | ftp ftp.droiddev.nl
+
+# Password database
 gpg --batch --yes --output secrets/pass.gpg --sign --encrypt secrets/keepass.kdb
+# Java keystore
+gpg --batch --yes --output secrets/android.gpg --sign --encrypt secrets/android.jks
 
 cp $HOME/.mozilla/firefox/b6qhetnq.default/stylish.sqlite  misc/firefox.stylish/stylish.sqlite
 
-git add secrets/gpg-pubkeyring.gpg secrets/gpg-ownertrust.gpg secrets/pass.gpg gnupg/2F2546D8.asc misc/firefox.stylish/stylish.sqlite
+git add secrets/gpg-pubkeyring.gpg secrets/gpg-ownertrust.gpg secrets/pass.gpg gnupg/2F2546D8.asc misc/firefox.stylish/stylish.sqlite secrets/android.gpg
 git commit -m "Automatic dotupdate $(date +"%m-%d-%Y %r")"
 git push
 
@@ -34,8 +36,5 @@ if [ -d /home/techwolf12/scripts ] ; then
         sudo ln -sf $file /usr/bin/.;
     done
 fi
-
-# Force the pins again
-gpg --card-edit / admin forcesig quit
 
 cd $OLDWD

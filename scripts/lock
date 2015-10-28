@@ -3,14 +3,20 @@ if [ -n ps ax | grep -v grep | grep 'i3lock' ]; then
     echo "i3 lock is already running"
 else
 
-if [ $1 -eq 1 ] ; then
-    i3lock -b -t -i /home/techwolf12/Pictures/lock.png
-else
-    scrot /tmp/screenshot.png
-    convert /tmp/screenshot.png -blur 0x5 /tmp/screenshotblur.png
-    rm -f /tmp/screenshot.png
-    i3lock -b -t -i /tmp/screenshotblur.png
-    rm -f /tmp/screenshotblur.png
+    if [ $1 -eq 1 ] ; then
+        i3lock -b -t -i /home/techwolf12/Pictures/lock.png
+    elif [ $1 -eq 2 ] ; then
+        scrot /tmp/screenshot.png
+        convert /tmp/screenshot.png -blur 0x5 /tmp/screenshotblur.png
+        convert -pointsize 80 -fill red -stroke black -draw "text 350,500 "$2"" /tmp/screenshotblur.png /tmp/lockscreen.png
+        rm -f /tmp/screenshot.png /tmp/screenshotblur.png
+        i3lock -b -t -i /tmp/lockscreen.png
+        rm -f /tmp/lockscreen.png
+    else
+        scrot /tmp/screenshot.png
+        convert /tmp/screenshot.png -blur 0x5 /tmp/screenshotblur.png
+        rm -f /tmp/screenshot.png
+        i3lock -b -t -i /tmp/screenshotblur.png
+        rm -f /tmp/screenshotblur.png
+    fi
 fi
-fi
-
