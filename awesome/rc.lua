@@ -320,6 +320,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
+    { rule = { class = "Hexchat" },
+      properties = { tag = tags[1][3] } }
 }
 -- }}}
 

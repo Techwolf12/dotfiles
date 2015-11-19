@@ -21,7 +21,7 @@ alias down="please shutdown -h now"
 alias kcs="kill -9 $$"
 
 # Get your outer IP address.
-alias ip="curl icanhazip.com"
+alias xip="curl icanhazip.com"
 
 alias ix="curl -n -F 'f:1=<-' ix.io"
 alias curl="curl -s -S"

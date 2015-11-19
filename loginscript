@@ -5,7 +5,8 @@ echo -e "\033[1;32m`figlet Techwolf12`
 
 \033[0;35m+++++++++++++++++: \033[1;32mSystem Data \033[0;35m:+++++++++++++++++++
 \033[0;35m+ Hostname \033[1;32m= \033[0;35m`hostname -f`
-\033[0;35m+ Address \033[1;32m= \033[0;35m`/sbin/ifconfig | grep 'inet addr:' | sed '/127.0.0.1/d' | head -1 | cut -d: -f2 | awk '{ print $1}'`
+\033[0;35m+ Internal address \033[1;32m= \033[0;35m`/sbin/ifconfig | grep 'inet addr:' | sed '/127.0.0.1/d' | head -1 | cut -d: -f2 | awk '{ print $1}'`
+\033[0;35m+ External address \033[1;32m= \033[0;35m`curl -s icanhazip.com`
 \033[0;35m+ Kernel \033[1;32m= \033[0;35m`uname -r`
 \033[0;35m+ Uptime \033[1;32m=\033[0;35m `uptime | sed 's/.*up \([^,]*\), .*/\1/'`
 \033[0;35m+ CPU \033[1;32m= \033[0;35m`cat /proc/cpuinfo | grep "model name" | head -1 | awk -F":" '/ /{print substr($2, 2)}'`
