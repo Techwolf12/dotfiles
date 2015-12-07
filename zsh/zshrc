@@ -15,6 +15,7 @@ plugins=(git debian common-aliases encode64 npm wd ssh-agent gpg-agent)
 
 source $ZSH/oh-my-zsh.sh
 compdef gpg2=gpg
+compdef dquilt=quilt
 
 # User configuration
 

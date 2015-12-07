@@ -38,4 +38,6 @@ alias apt-get="sudo apt-get"
 alias gpg="gpg2"
 # Debian packaging
 alias dquilt="quilt ­­quiltrc=${HOME}/.quiltrc­dpkg"
-complete ­F _quilt_completion $_quilt_complete_opt dquilt
+# Termart
+alias pizza='curl -L http://git.io/pizzza'
+alias pancakes='curl -L http://git.io/pancakes'
