@@ -9,7 +9,7 @@
 theme                               = {}
 
 themes_dir                          = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-darker"
-theme.wallpaper                     = "/home/techwolf12/.config/awesome/tech/background.png" or themes_dir .. "/wall.png"
+theme.wallpaper                     = "/home/techwolf12/.config/awesome/themes/tech/background.png"
 
 theme.font                          = "Terminus 9"
 theme.fg_normal                     = "#DDDDFF"

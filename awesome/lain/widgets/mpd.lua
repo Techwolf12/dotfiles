@@ -1,12 +1,12 @@
 
 --[[
-                                                  
-     Licensed under GNU General Public License v2 
-      * (c) 2013, Luke Bonham                     
-      * (c) 2010, Adrian C. <anrxc@sysphere.org>  
-                                                  
---]]
 
+     Licensed under GNU General Public License v2
+      * (c) 2013, Luke Bonham
+      * (c) 2010, Adrian C. <anrxc@sysphere.org>
+
+--]]
+require("lain.asyncshell")
 local helpers      = require("lain.helpers")
 local async        = require("lain.asyncshell")
 

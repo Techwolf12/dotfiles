@@ -48,7 +48,7 @@ function run_once(cmd)
   end
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
-
+run_once("mopidy");
 -- }}}
 
 -- {{{ Variable definitions
@@ -67,7 +67,6 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
 browser    = "firefox"
-graphics   = "gimp"
 iptraf     = terminal .. " -e 'sudo vnstat && read'"
 musicplr   = terminal .. " -e ncmpcpp "
 
@@ -110,33 +109,33 @@ markup = lain.util.markup
 
 -- Textclock
 clockicon = wibox.widget.imagebox(beautiful.widget_clock)
-mytextclock = awful.widget.textclock(" %a %d %b  %H:%M")
+mytextclock = awful.widget.textclock(" %a %d %b  %I:%M %p")
 
 -- calendar
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 -- MPD
---mpdicon = wibox.widget.imagebox(beautiful.widget_music)
---mpdicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell(musicplr) end)))
---mpdwidget = lain.widgets.mpd({
---    settings = function()
---        if mpd_now.state == "play" then
---            artist = " " .. mpd_now.artist .. " "
---            title  = mpd_now.title  .. " "
---            mpdicon:set_image(beautiful.widget_music_on)
---        elseif mpd_now.state == "pause" then
---            artist = " mpd "
---            title  = "paused "
---        else
---            artist = ""
---            title  = ""
---            mpdicon:set_image(beautiful.widget_music)
---        end
---
---        widget:set_markup(markup("#EA6F81", artist) .. title)
---    end
---})
---mpdwidgetbg = wibox.widget.background(mpdwidget, "#313131")
+mpdicon = wibox.widget.imagebox(beautiful.widget_music)
+mpdicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell(musicplr) end)))
+mpdwidget = lain.widgets.mpd({
+    settings = function()
+        if mpd_now.state == "play" then
+            artist = " " .. mpd_now.artist .. " "
+            title  = mpd_now.title  .. " "
+            mpdicon:set_image(beautiful.widget_music_on)
+        elseif mpd_now.state == "pause" then
+            artist = " mpd "
+            title  = "paused "
+        else
+            artist = ""
+            title  = ""
+            mpdicon:set_image(beautiful.widget_music)
+        end
+
+        widget:set_markup(markup("#EA6F81", artist) .. title)
+    end
+})
+mpdwidgetbg = wibox.widget.background(mpdwidget, "#313131")
 
 -- MEM
 memicon = wibox.widget.imagebox(beautiful.widget_mem)
@@ -167,7 +166,7 @@ fswidgetbg = wibox.widget.background(fswidget, "#313131")
 baticon = wibox.widget.imagebox(beautiful.widget_battery)
 batwidget = lain.widgets.bat({
     settings = function()
-        if bat_now.perc == "N/A" then
+        if bat_now.perc == "101" then
             widget:set_markup(" AC ")
             baticon:set_image(beautiful.widget_ac)
             return
@@ -301,10 +300,10 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(spr)
-    --right_layout:add(arrl)
+    right_layout:add(arrl)
     --right_layout:add(arrl_ld)
-    --right_layout:add(mpdicon)
-    --right_layout:add(mpdwidgetbg)
+    right_layout:add(mpdicon)
+    right_layout:add(mpdwidgetbg)
     right_layout:add(arrl_dl)
     right_layout:add(volicon)
     right_layout:add(volumewidget)
@@ -431,7 +430,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
     awful.key({ modkey,           }, "l",     function () awful.util.spawn("lock")    end),
-    awful.key({ modkey }, "F10", function() awful.util.spawn("sudo shutdown -h now") end),
+    awful.key({ modkey            }, "F10", function() awful.util.spawn("sudo shutdown -h now") end),
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
     awful.key({ altkey,           }, "h",      function () fswidget.show(7) end),
@@ -460,22 +459,22 @@ globalkeys = awful.util.table.join(
     -- MPD control
     awful.key({ altkey, "Control" }, "Up",
         function ()
-            awful.util.spawn_with_shell("mpc toggle || ncmpcpp toggle || ncmpc toggle || pms toggle")
+            awful.util.spawn_with_shell("mpc toggle || ncmpcpp toggle")
             mpdwidget.update()
         end),
     awful.key({ altkey, "Control" }, "Down",
         function ()
-            awful.util.spawn_with_shell("mpc stop || ncmpcpp stop || ncmpc stop || pms stop")
+            awful.util.spawn_with_shell("mpc stop || ncmpcpp stop")
             mpdwidget.update()
         end),
     awful.key({ altkey, "Control" }, "Left",
         function ()
-            awful.util.spawn_with_shell("mpc prev || ncmpcpp prev || ncmpc prev || pms prev")
+            awful.util.spawn_with_shell("mpc prev || ncmpcpp prev")
             mpdwidget.update()
         end),
     awful.key({ altkey, "Control" }, "Right",
         function ()
-            awful.util.spawn_with_shell("mpc next || ncmpcpp next || ncmpc next || pms next")
+            awful.util.spawn_with_shell("mpc next || ncmpcpp next")
             mpdwidget.update()
         end),
 
@@ -484,7 +483,6 @@ globalkeys = awful.util.table.join(
 
     -- User programs
     awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
-    awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
 
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
