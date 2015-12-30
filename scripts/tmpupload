@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+scp -B -C -p -q $1 root@ns1.droiddev.nl:/var/www/techwolf12.nl/web/tmp/.
+echo "http://techwolf12.nl/tmp/$1"
