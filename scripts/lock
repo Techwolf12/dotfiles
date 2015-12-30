@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -n ps ax | grep -v grep | grep 'i3lock' ]; then
+if [ -n ps ax | grep -v grep | grep 'i3lock']; then
     echo "i3 lock is already running"
 else
 

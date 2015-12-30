@@ -24,6 +24,8 @@ let g:syntastic_style_error_symbol='✗✗'
 let g:syntastic_warning_symbol='⚠⚠'
 let g:syntastic_style_warning_symbol='⚠⚠'
 let g:syntastic_check_on_open=1
+let g:formatdef_my_custom_cs = '"astyle --indent=tab"'
+let g:formatters_cs = ['my_custom_cs']
 
 colorscheme tech
 Plugin 'scrooloose/nerdtree'

@@ -10,6 +10,8 @@ alias vlcplay='vlc -f --no-video-title-show --no-osd --play-and-exit -q'
 alias sshproxy='ssh -Nn -D 1080'
 alias gpge='gpg --armor --encrypt --sign'
 alias gpgs='gpg --clearsign'
+alias swebsrv='python -m SimpleHTTPServer 8000'
+alias ytmp3='youtube-dl --extract-audio --audio-format mp3'
 
 # Unclear stuff
 alias please='sudo'
@@ -27,8 +29,6 @@ alias ix="curl -n -F 'f:1=<-' ix.io"
 alias curl="curl -s -S"
 
 alias openports="nmap portquiz.net"
-alias music="ncmpcpp"
-alias t="nc techwolf12.nl 9999"
 alias mkdir='mkdir -pv'
 alias df='df -H'
 alias vir='vim -R'
