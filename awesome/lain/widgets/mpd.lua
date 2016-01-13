@@ -83,8 +83,8 @@ local function worker(args)
                 end
             end
 
-            mpd_notification_preset.text = string.format("%s (%s) - %s\n%s", mpd_now.artist,
-                                           mpd_now.album, mpd_now.date, mpd_now.title)
+            mpd_notification_preset.text = string.format("%s (%s)\n%s", mpd_now.artist,
+                                           mpd_now.album, mpd_now.title)
             widget = mpd.widget
             settings()
 

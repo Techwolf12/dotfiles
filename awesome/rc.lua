@@ -67,7 +67,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
 browser    = "firefox"
-iptraf     = terminal .. " -e 'sudo vnstat && read'"
+vnstat     = terminal .. " -e 'sudo vnstat && read'"
 musicplr   = terminal .. " -e ncmpcpp "
 
 local layouts = {
@@ -172,6 +172,7 @@ batwidget = lain.widgets.bat({
             return
         elseif tonumber(bat_now.perc) <= 5 then
             baticon:set_image(beautiful.widget_battery_empty)
+            run_once("sudo pm-suspend")
         elseif tonumber(bat_now.perc) <= 15 then
             baticon:set_image(beautiful.widget_battery_low)
         else
@@ -201,7 +202,7 @@ volumewidget = lain.widgets.alsa({
 
 -- Net
 neticon = wibox.widget.imagebox(beautiful.widget_net)
-neticon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell(iptraf) end)))
+neticon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell(vnstat) end)))
 netwidget = wibox.widget.background(lain.widgets.net({
     settings = function()
         widget:set_markup(markup("#7AC82E", " " .. net_now.received)
@@ -483,7 +484,7 @@ globalkeys = awful.util.table.join(
 
     -- User programs
     awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
-
+    awful.key({ modkey }, "a", function () awful.util.spawn("nautilus") end),
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
     awful.key({ modkey }, "x",
@@ -571,7 +572,7 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
 	                   size_hints_honor = false } },
-    { rule = { class = "URxvt" },
+    { rule = { class = "xterm" },
           properties = { opacity = 0.99 } },
 
     { rule = { class = "MPlayer" },
