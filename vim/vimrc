@@ -198,3 +198,9 @@ nmap <silent> Z :bp<CR>
 nmap <silent> X :bn<CR>
 nmap <silent> C :bd<CR>
 nmap <silent> <F6> ggg?G<CR>
+
+" disable help
+noremap <F1> <nop>
+" search will center on the line it's found in.
+nnoremap N Nzz
+noremap n nzz
