@@ -393,10 +393,7 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Show Menu
-    awful.key({ modkey }, "w",
-        function ()
-            mymainmenu:show({ keygrabber = true })
-        end),
+    awful.key({ modkey }, "w", function () awful.util.spawn_with_shell(musicplr) end),
 
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()
