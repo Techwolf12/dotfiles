@@ -17,7 +17,7 @@ gpg --batch --yes --output secrets/gpg-pubkeyring.gpg --sign --encrypt /tmp/pubk
 gpg -a --batch --yes --output gnupg/2F2546D8.asc --export 0x2F2546D8
 
 # Upload the GnuPG key to techwolf12.nl
-echo "cd web/keys\nput gnupg/2F2546D8.asc 2F2546D8.asc\nbye" | ftp ftp.droiddev.nl
+echo -e "cd web/keys\nput gnupg/2F2546D8.asc 2F2546D8.asc\nbye" | ftp ftp.droiddev.nl
 
 # Password database
 gpg --batch --yes --output secrets/pass.gpg --sign --encrypt secrets/keepass.kdb

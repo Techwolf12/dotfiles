@@ -67,8 +67,8 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
 browser    = "firefox"
-vnstat     = terminal .. " -e 'sudo vnstat && read'"
-musicplr   = terminal .. " -e ncmpcpp "
+vnstat     = "urxvt -e 'sudo vnstat && read'"
+musicplr   = "urxvt -e ncmpcpp "
 
 local layouts = {
     awful.layout.suit.floating,
