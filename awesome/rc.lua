@@ -572,18 +572,14 @@ awful.rules.rules = {
     { rule = { class = "xterm" },
           properties = { opacity = 0.99 } },
 
-    { rule = { class = "MPlayer" },
+    { rule = { class = "pinentry" },
           properties = { floating = true } },
 
-    { rule = { class = "Dwb" },
-          properties = { tag = tags[1][1] } },
+    { rule = { class = "Dialog" },
+          properties = { floating = true } },
 
-    { rule = { class = "Iron" },
-          properties = { tag = tags[1][1] } },
-
-    { rule = { instance = "plugin-container" },
-          properties = { tag = tags[1][1] } },
-
+    { rule = { class = "Slack" },
+          properties = { tag = tags[1][3] } },
 	  { rule = { class = "Gimp" },
      	    properties = { tag = tags[1][4] } },
 

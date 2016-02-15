@@ -126,21 +126,12 @@ if !exists(":W")
 endif
 
 if has('autocmd')
-
-    " For all text files set 'textwidth' to 78 characters.
-    augroup SetWrapperForTextFiles
-        au!
-        au BufRead,BufNewFile *.md setlocal tw=80 spell
-        au BufRead,BufNewFile *.txt setlocal tw=80 spell
-        au BufRead,BufNewFile *.tex setlocal tw=80 spell
-    augroup END
-
     " Automatically remove all trailing whitespace from the file before
     " saving.
-    augroup RemoveTrailingWhitespace
-        au!
-        autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-    augroup END
+    "augroup RemoveTrailingWhitespace
+     "   au!
+      "  autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+   " augroup END
 
     augroup reload_vimrc
         au!
@@ -180,9 +171,9 @@ filetype plugin indent on
 cnoremap w!! w !sudo tee % >/dev/null
 
 " system clipboard pasting
- nnoremap <Leader>y :w !xclip<cr><cr>
- nnoremap <Leader>yy :w !xclip<cr><cr>
- nnoremap <Leader>p :r !xclip -o<cr>
+nnoremap <Leader>y :w !xclip<cr><cr>
+nnoremap <Leader>yy :w !xclip<cr><cr>
+nnoremap <Leader>p :r !xclip -o<cr>
 
 " Snippet variables.
 let g:snips_author_short= 'techwolf12'
@@ -204,3 +195,19 @@ noremap <F1> <nop>
 " search will center on the line it's found in.
 nnoremap N Nzz
 noremap n nzz
+
+let b:myLang=0
+let g:myLangList=["nospell","nl_nl","en_gb"]
+function! ToggleSpell()
+    let b:myLang=b:myLang+1
+    if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
+    if b:myLang==0
+        setlocal nospell
+    else
+        execute "setlocal spell spelllang=".get(g:myLangList, b:myLang)
+    endif
+    echo "spell checking language:" g:myLangList[b:myLang]
+endfunction
+
+nmap <silent> <F9> :call ToggleSpell()<CR>
+

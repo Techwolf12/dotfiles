@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+import nmap
+import os
+
+nm = nmap.PortScanner()
+
+nm.scan(hosts='192.168.1.0/24', arguments='--open -n -Pn -p 5555')
+
+for host in nm.all_hosts():
+    os.system("adb connect %s" % host)
