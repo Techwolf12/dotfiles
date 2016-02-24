@@ -19,24 +19,20 @@ Plugin 'Syntastic'
 set encoding=utf8
 set termencoding=utf-8
 scriptencoding utf-8
-let g:syntastic_error_symbol='✗✗'
-let g:syntastic_style_error_symbol='✗✗'
-let g:syntastic_warning_symbol='⚠⚠'
-let g:syntastic_style_warning_symbol='⚠⚠'
+let g:syntastic_error_symbol='E'
+let g:syntastic_style_error_symbol='E'
+let g:syntastic_warning_symbol='W'
+let g:syntastic_style_warning_symbol='W'
 let g:syntastic_check_on_open=1
-let g:formatdef_my_custom_cs = '"astyle --indent=tab"'
-let g:formatters_cs = ['my_custom_cs']
 
 colorscheme tech
 Plugin 'scrooloose/nerdtree'
 map <silent> <F7> :NERDTreeToggle<CR>
 
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tComment'
 Plugin 'bling/vim-airline'
-" Change the powerline icons to the correct terms.
+Plugin 'jamessan/vim-gnupg'
+" TODO: Airline style
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -44,15 +40,12 @@ endif
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#tabline#enabled = 1
 set ttimeoutlen=50              " Stop the delay in airline when leaving insertmode.
-
+let  g:GPGPreferArmor = 1
 Plugin 'majutsushi/tagbar'
 map <F8> :Tagbar<CR>
 
 Plugin 'airblade/vim-gitgutter'
-Plugin 'kien/ctrlp.vim'
-Plugin 'dag/vim-fish'
 Plugin 'terryma/vim-multiple-cursors'
-"Plugin 'Valloric/YouCompleteMe'
 
 " Syntax plugins
 Plugin 'hynek/vim-python-pep8-indent'
@@ -144,7 +137,7 @@ endif
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.so,*.a,*.lib,*.obj,*.png,*.jpg,*.gif,*.dll,*.pdf
 
 " Highlight merge conflict markers
-"match Todo '\v^(\<|\=|\>){7}([^=].+)?$'
+match Todo '\v^(\<|\=|\>){7}([^=].+)?$'
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -154,18 +147,8 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " Enable file type detection.
-" Use the default filetype settings, so that mail gets 'tw' set to 72,
-" 'cindent' is on in C files, etc.
 " Also load indent files, to automatically do language-dependent indenting.
 filetype plugin indent on
-
-" Fix the difficult-to-read default setting for diff text highlighting.  The
-" " bang (!) is required since we are overwriting the DiffText setting. The
-" highlighting for Todo also looks nice (yellow) if you don't like the MatchParent
-" colors.
-" highlight! link DiffText MatchParen
-
-" Shit stolen from Mirko (https://github.com/Imakethings/)
 
 " write to read only file
 cnoremap w!! w !sudo tee % >/dev/null

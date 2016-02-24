@@ -42,3 +42,4 @@ alias dquilt="quilt ­­quiltrc=${HOME}/.quiltrc­dpkg"
 # Termart
 alias pizza='curl -L http://git.io/pizzza'
 alias pancakes='curl -L http://git.io/pancakes'
+alias weather='curl http://wttr.in/'

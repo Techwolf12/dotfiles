@@ -1,6 +1,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
-
+if [ "$TTY" = "/dev/tty1" ]
+then
+    startx
+fi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/dotfiles/zsh/oh-my-zsh
 export EDITOR="vim"
