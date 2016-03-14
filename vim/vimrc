@@ -10,8 +10,6 @@ call vundle#begin()
 " let Vundle manage Vundle
 Plugin 'gmarik/vundle.vim'
 
-" Installed Plugins
-
 " Syntax checker
 Plugin 'Syntastic'
 
@@ -32,13 +30,13 @@ map <silent> <F7> :NERDTreeToggle<CR>
 Plugin 'tComment'
 Plugin 'bling/vim-airline'
 Plugin 'jamessan/vim-gnupg'
-" TODO: Airline style
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = "mystery"
 set ttimeoutlen=50              " Stop the delay in airline when leaving insertmode.
 let  g:GPGPreferArmor = 1
 Plugin 'majutsushi/tagbar'

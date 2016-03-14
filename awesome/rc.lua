@@ -1,11 +1,3 @@
---[[
-
-     Powerarrow Darker Awesome WM config 2.0
-     github.com/copycat-killer
-     Configured by: juancamilo2000
-
---]]
-
 -- {{{ Required libraries
 local gears     = require("gears")
 local awful     = require("awful")
@@ -61,14 +53,15 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-darker/t
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "xterm -xrm 'XTerm*selectToClipboard: true'"
+terminal   = "urxvt"
+transterminal = "urxvt -tr"
 editor     = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
 browser    = "firefox"
-vnstat     = "urxvt -e 'sudo vnstat && read'"
-musicplr   = "urxvt -e ncmpcpp "
+vnstat     = terminal .. " -e "
+musicplr   = terminal .. " -e ncmpcpp "
 
 local layouts = {
     awful.layout.suit.floating,
@@ -311,12 +304,12 @@ for s = 1, screen.count() do
     --right_layout:add(arrl_ld)
     --right_layout:add(memicon)
     --right_layout:add(memwidget)
-    --right_layout:add(arrl_ld)
-    --right_layout:add(cpuicon)
-    --right_layout:add(cpuwidget)
     right_layout:add(arrl_ld)
-    right_layout:add(fsicon)
-    right_layout:add(fswidgetbg)
+    right_layout:add(cpuicon)
+    right_layout:add(cpuwidget)
+    --right_layout:add(arrl_ld)
+    --right_layout:add(fsicon)
+    --right_layout:add(fswidgetbg)
     right_layout:add(arrl_dl)
     right_layout:add(baticon)
     right_layout:add(batwidget)
@@ -326,7 +319,7 @@ for s = 1, screen.count() do
     right_layout:add(arrl_dl)
     right_layout:add(mytextclock)
     right_layout:add(spr)
-    right_layout:add(arrl_ld)
+    --right_layout:add(arrl_ld)
     right_layout:add(mylayoutbox[s])
 
     -- Now bring it all together (with the tasklist in the middle)
@@ -425,6 +418,8 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(transterminal) end),
+    awful.key({ modkey, "Control" }, "Return", function () awful.util.spawn(transterminal .. " -sh 100") end),
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
     awful.key({ modkey,           }, "l",     function () awful.util.spawn("lock")    end),

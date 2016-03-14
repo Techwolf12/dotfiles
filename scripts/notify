@@ -5,6 +5,7 @@ License: GPL v3 or later at your choice
 """
 import notify2
 import sys
+import os
 
 notify2.init("Tech's Notifier")
 
@@ -15,7 +16,8 @@ else:
         with open(sys.argv[3], "r") as f:
             content = f.read()
         n = notify2.Notification(sys.argv[2], content)
-
+    elif sys.argv[1] == "e":
+        n = notify2.Notification(sys.argv[2], os.popen(sys.argv[3]).read().splitlines()[0])
     else:
         n = notify2.Notification(sys.argv[1], sys.argv[2])
 
