@@ -119,7 +119,7 @@ endif
 if has('autocmd')
     " Automatically remove all trailing whitespace from the file before
     " saving.
-    "augroup RemoveTrailingWhitespace
+    "TODO: only for non-markdown: augroup RemoveTrailingWhitespace
      "   au!
       "  autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
    " augroup END
