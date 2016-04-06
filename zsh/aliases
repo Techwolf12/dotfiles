@@ -21,6 +21,7 @@ alias down="please shutdown -h now"
 # Stolen from Mirko (again yes)
 # Kill current shell (Leaves no trace of commands.)
 alias kcs="kill -9 $$"
+alias xmerge="xrdb -merge $HOME/.Xresources"
 
 # Get your outer IP address.
 alias xip="curl icanhazip.com"
@@ -37,9 +38,14 @@ alias cordova="phonegap cordova"
 alias prettyjson="python -mjson.tool"
 alias apt-get="sudo apt-get"
 alias gpg="gpg2"
+alias c="clear"
 # Debian packaging
 alias dquilt="quilt ­­quiltrc=${HOME}/.quiltrc­dpkg"
 # Termart
 alias pizza='curl -L http://git.io/pizzza'
 alias pancakes='curl -L http://git.io/pancakes'
 alias weather='curl http://wttr.in/'
+
+
+alias startkeylog='sudo logkeys --start --keymap $HOME/Programs/logkeys/keymaps/en_US_ubuntu_1204.map --output /tmp/keys.log'
+alias stopkeylog='sudo logkeys -k'

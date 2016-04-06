@@ -1,4 +1,3 @@
-set folder="imap://mail.droiddev.nl"
-set spoolfile="imap://mail.droiddev.nl/INBOX"
-
+#set folder="imap://mail.droiddev.nl"
+#set spoolfile="imap://mail.droiddev.nl/INBOX"
 bind index G imap-fetch-mail
