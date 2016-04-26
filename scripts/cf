@@ -2,11 +2,15 @@
 IMAGE=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1).png
 URL="i.techwolf12.nl"
 mkdir -p /tmp/screenshots/
-scrot -s /tmp/screenshots/$IMAGE
-scp -B -p /tmp/screenshots/$IMAGE root@ns1.droiddev.nl:/var/www/i.techwolf12.nl/web/.
-notify "Successfully uploaded" http://$URL/$IMAGE
+TARGET=/tmp/screenshots/$IMAGE
+scrot -s $TARGET
+OUT=$?
+if [ $OUT -eq 0 ]; then
+    scp -B -q -p $TARGET root@ns1.droiddev.nl:/var/www/i.techwolf12.nl/web/.
+    notify "Successfully uploaded" http://$URL/$IMAGE
 
-
-echo -n http://$URL/$IMAGE | xclip -selection primary     &>/dev/null
-echo -n http://$URL/$IMAGE | xclip -selection clipboard   &>/dev/null
-
+    echo -n http://$URL/$IMAGE | xclip -selection primary     &>/dev/null
+    echo -n http://$URL/$IMAGE | xclip -selection clipboard   &>/dev/null
+else
+    echo "No shot taken"
+fi

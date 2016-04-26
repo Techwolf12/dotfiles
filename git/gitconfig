@@ -13,6 +13,7 @@
     ui = true
 [alias]
     l = log --no-merges --show-signature
+    logs = log --oneline --graph --no-merges
     m = checkout master
     acp = !git add -A && git commit && git push
     unadd = reset HEAD

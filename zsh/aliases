@@ -46,6 +46,8 @@ alias pizza='curl -L http://git.io/pizzza'
 alias pancakes='curl -L http://git.io/pancakes'
 alias weather='curl http://wttr.in/'
 
-
 alias startkeylog='sudo logkeys --start --keymap $HOME/Programs/logkeys/keymaps/en_US_ubuntu_1204.map --output /tmp/keys.log'
 alias stopkeylog='sudo logkeys -k'
+
+# Radio stations
+alias freshuk='echo "clear\nadd tunein:station:s222437\nplay 0\nclose" | nc localhost 6600'

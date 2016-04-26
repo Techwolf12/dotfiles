@@ -37,4 +37,10 @@ if [ -d /home/techwolf12/scripts ] ; then
     done
 fi
 
+if [ -d /home/techwolf12/Programs/symlinks ] ; then
+    for file in /home/techwolf12/Programs/symlinks/*; do
+        sudo ln -sf $file /usr/bin/.;
+    done
+fi
+
 cd $OLDWD
