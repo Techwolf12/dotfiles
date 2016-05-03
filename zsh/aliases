@@ -12,7 +12,7 @@ alias gpge='gpg --armor --encrypt --sign'
 alias gpgs='gpg --clearsign'
 alias swebsrv='python -m SimpleHTTPServer 8000'
 alias ytmp3='youtube-dl --extract-audio --audio-format mp3'
-
+alias s='screen'
 # Unclear stuff
 alias please='sudo'
 alias fucking='sudo'

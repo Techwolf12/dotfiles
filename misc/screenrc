@@ -1,0 +1,29 @@
+
+# Statusbar
+hardstatus off
+hardstatus alwayslastline
+hardstatus string "%{+b wk} %-w%{+b wB} %n %t %{-}%+w %41=${USER} @ %H %-= %= %D, %c:%s "
+
+# Escape key
+escape \\\
+
+# To clear the screen after closing some programs
+altscreen on
+
+# Windows opening by default
+screen -t "MPD" 0 ncmpcpp
+screen -t "ZSH" 1
+screen -t "ZSH" 2
+
+# keybinds
+bindkey k quit
+
+bind 'K' kill
+bind 'I' login on
+bind 'O' login off
+# COLORS! and some useful terminfo
+term screen-256color
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# Do not show startup message
+startup_message off
