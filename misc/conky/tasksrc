@@ -1,0 +1,65 @@
+
+# conky-tasks-rc
+
+# general settings
+double_buffer yes
+text_buffer_size 1024
+no_buffers yes
+override_utf8_locale yes
+update_interval 1
+
+# window settings
+own_window yes
+own_window_type override
+own_window_transparent yes
+border_outer_margin 0
+border_inner_margin 0
+minimum_size 400 400
+maximum_width 400
+alignment top_left
+gap_x 40
+gap_y 70
+
+# graphic settings
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color C3C3D0
+color1 004DA6
+color2 C12C07
+color3 BF9926
+color4 991E1E
+
+# text settings
+use_xft yes
+xftfont It wasn't me:size=8
+
+TEXT
+# system
+${color2}SYSTEM ${stippled_hr 1}${color}
+${voffset 2}${color1}${font OpenLogos:size=22}J${font}${voffset -12}${goto 30}${pre_exec echo `lsb_release -sirc`}${alignr}${color2}uptime: ${color}${uptime_short}
+${voffset 7}${color1}${font OpenLogos:size=22}t${font}${voffset -12}${goto 30}${pre_exec uname -sr}${alignr}${color2}${pre_exec echo `whoami`@`hostname`}${color}
+#
+# resources
+${voffset 18}${color2}RESOURCES ${stippled_hr 1}${color}
+${voffset 2}${color1}${font ConkyColors:size=17}c${font}${voffset -7}${goto 30}Core-1${goto 65}${color3}${platform f71882fg.1536 temp 1}${goto 185}${color2}${freq_g 1}GHz${color}${alignr}${cpu cpu1}% ${voffset -5}${color2}${cpubar cpu1 10,60}${color}${voffset 15}
+${voffset -6}${color1}${font ConkyColors:size=17}c${font}${voffset -7}${goto 30}Core-2${goto 65}${color3}${platform f71882fg.1536 temp 2}${goto 185}${color2}${freq_g 2}GHz${color}${alignr}${cpu cpu2}% ${voffset -5}${color2}${cpubar cpu2 10,60}${color}${voffset 15}
+${voffset -6}${color1}${font ConkyColors:size=17}f${font}${voffset -7}${goto 30}RAM${goto 185}${color}${mem}${color2}/${color}${memmax}${alignr}${memperc}% ${voffset -5}${color2}${membar 10,60}${color}${voffset 15}
+${voffset -6}${color1}${font ConkyColors:size=17}t${font}${voffset -7}${goto 30}Swap${goto 185}${color}${swap}${color2}/${color}${swapmax}${alignr}${swapperc}% ${voffset -5}${color2}${swapbar 10,60}${color}${voffset 15}
+#
+# storage
+${voffset 5}${color2}STORAGE ${stippled_hr 1}${color}
+${voffset 2}${color1}${font ConkyColors:size=17}i${font}${voffset -12}${goto 30}/${goto 185}${color2}used: ${color}${fs_used /}${alignr}${fs_used_perc /}% ${voffset -2}${color2}${fs_bar 5,60 /}${color}${voffset 2}
+${voffset 1}${goto 30}${color2}size: ${color}${fs_size /}${alignr}${color2}free: ${color}${fs_free /}
+#${voffset 2}${color1}${font ConkyColors:size=17}i${font}${voffset -12}${goto 30}/var${goto 185}${color2}used: ${color}${fs_used /var}${alignr}${fs_used_perc /var}% ${voffset -2}${color2}${fs_bar 5,60 /var}${color}${voffset 2}
+#${voffset 1}${goto 30}${color2}size: ${color}${fs_size /var}${alignr}${color2}free: ${color}${fs_free /var}
+#${voffset 2}${color1}${font ConkyColors:size=17}i${font}${voffset -12}${goto 30}/data${goto 185}${color2}used: ${color}${fs_used /data}${alignr}${fs_used_perc /data}% ${voffset -2}${color2}${fs_bar 5,60 /data}${color}${voffset 2}
+#${voffset 1}${goto 30}${color2}size: ${color}${fs_size /data}${alignr}${color2}free: ${color}${fs_free /data}
+#
+# lan
+${voffset 10}${color2}LAN ${stippled_hr 1}${color}
+${voffset 2}${color1}${font ConkyColors:size=16}j${font}${voffset -7}${goto 30}WI-FI${goto 65}${color3}${wireless_bitrate wlan0}${color}${alignr}${wireless_link_qual_perc wlan0}% ${voffset -5}${color2}${wireless_link_bar 10,60 wlan0}${color}${voffset 3}
+#${voffset 2}${color3}${font ConkyColors:size=16}x${font}${voffset -7}${goto 30}${color1}Upload${color}${alignr}${upspeedf eth0} KiB/s
+#${voffset 6}${color2}${font ConkyColors:size=16}w${font}${voffset -7}${goto 30}${color1}Download${color}${alignr}${downspeedf eth0} KiB/s
+${voffset 6}${color1}${font ConkyColors:size=16}B${font}${voffset -7}${goto 30}Public IP${goto 185}${color2}connections: ${color}${tcp_portmon 1 65535 count}${alignr}${execi 21600 curl --silent --retry 3 "http://whatismyip.org/" | grep -oP "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"}

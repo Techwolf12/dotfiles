@@ -1,0 +1,37 @@
+# general settings
+double_buffer yes
+text_buffer_size 1024
+no_buffers yes
+override_utf8_locale yes
+update_interval 1
+
+# window settings
+own_window yes
+own_window_type override
+own_window_transparent yes
+border_outer_margin 0
+border_inner_margin 0
+# minimum_size 200 80
+# maximum_width 200
+alignment bottom_left
+gap_x 40
+gap_y 60
+
+# graphic settings
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color C3C3D0
+color1 004DA6
+color2 C12C07
+color3 BF9926
+color4 991E1E
+
+# text settings
+use_xft yes
+xftfont It wasn't me:size=10
+
+TEXT
+${font It wasn't me:size=18}${color1}${time %B}${color} ${color3}${time %e}${color} ${color2}${time %A}${color}${font}
+${font It wasn't me:size=80}${voffset 5}${time %H}${voffset -5}${color1}:${color}${voffset 5}${time %M}${voffset -5}${font}
