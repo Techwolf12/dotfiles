@@ -22,7 +22,7 @@ compdef dquilt=quilt
 
 # User configuration
 
-export PATH="/root/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/:/home/techwolf12/Programs/symlinks"
+export PATH="/root/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/:/home/techwolf12/Programs/symlinks:/home/techwolf12/.bin"
 export LANG="en_US.UTF-8"
 source $HOME/dotfiles/zsh/aliases
 

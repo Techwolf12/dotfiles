@@ -12,5 +12,6 @@ if [ $OUT -eq 0 ]; then
     echo -n http://$URL/$IMAGE | xclip -selection primary     &>/dev/null
     echo -n http://$URL/$IMAGE | xclip -selection clipboard   &>/dev/null
 else
+    notify "Screenshot canceled" "Canceled screenshot by pressing a button"
     echo "No shot taken"
 fi
