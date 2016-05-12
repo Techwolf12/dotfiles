@@ -33,5 +33,6 @@ use_xft yes
 xftfont It wasn't me:size=10
 
 TEXT
-${font It wasn't me:size=18}${color1}${time %B}${color} ${color3}${time %e}${color} ${color2}${time %A}${color}${font}
-${font It wasn't me:size=80}${voffset 5}${time %H}${voffset -5}${color1}:${color}${voffset 5}${time %M}${voffset -5}${font}
+${font It wasn't me:size=20}${color1}${time %B}${color} ${color3}${time %e}${color} ${color2}${time %A}${color}${font}
+${font It wasn't me:size=80}${voffset 5}${time %I}${voffset -5}${color1}:${color}${voffset 5}${time %M}${voffset -5}${font}
+${font It wasn't me:size=20}${voffset -7}${offset 190}${time %p}${voffset -5}${color1}${voffset -5}${font}

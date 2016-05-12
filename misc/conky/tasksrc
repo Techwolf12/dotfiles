@@ -59,7 +59,7 @@ ${voffset 1}${goto 30}${color2}size: ${color}${fs_size /}${alignr}${color2}free:
 #
 # lan
 ${voffset 10}${color2}LAN ${stippled_hr 1}${color}
-${voffset 2}${color1}${font ConkyColors:size=16}j${font}${voffset -7}${goto 30}WI-FI${goto 65}${color3}${wireless_bitrate wlan0}${color}${alignr}${wireless_link_qual_perc wlan0}% ${voffset -5}${color2}${wireless_link_bar 10,60 wlan0}${color}${voffset 3}
+${voffset 2}${color1}${font ConkyColors:size=16}j${font}${voffset -7}${goto 30}WI-FI${goto 65}${color3}${offset 5}${wireless_bitrate wlan0}${color}${alignr}${wireless_link_qual_perc wlan0}% ${voffset 1}${color2}${wireless_link_bar 10,60 wlan0}${color}${voffset 3}
 #${voffset 2}${color3}${font ConkyColors:size=16}x${font}${voffset -7}${goto 30}${color1}Upload${color}${alignr}${upspeedf eth0} KiB/s
 #${voffset 6}${color2}${font ConkyColors:size=16}w${font}${voffset -7}${goto 30}${color1}Download${color}${alignr}${downspeedf eth0} KiB/s
 ${voffset 6}${color1}${font ConkyColors:size=16}B${font}${voffset -7}${goto 30}Public IP${goto 185}${color2}connections: ${color}${tcp_portmon 1 65535 count}${alignr}${execi 21600 curl --silent --retry 3 "http://whatismyip.org/" | grep -oP "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"}

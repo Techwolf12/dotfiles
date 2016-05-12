@@ -16,7 +16,7 @@ screen -t "ZSH" 1
 screen -t "ZSH" 2
 
 # keybinds
-bindkey k quit
+bindkey -k F2 quit
 
 bind 'K' kill
 bind 'I' login on
@@ -25,5 +25,7 @@ bind 'O' login off
 term screen-256color
 terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
+# Turn of the annoying vbell
+vbell off
 # Do not show startup message
 startup_message off
