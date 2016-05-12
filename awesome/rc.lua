@@ -41,7 +41,7 @@ function run_once(cmd)
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 run_once("mopidy");
-run_once("/home/techwolf12/.config/conky/start-conky.sh");
+run_once("conky --font=\"It wasn't me:size=10\" -qdc $HOME/.config/conky/clockrc; conky --font=\"Hack:size=9\" -qdc $HOME/.config/conky/tasksrc");
 -- }}}
 
 -- {{{ Variable definitions
@@ -62,7 +62,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- user defined
 browser    = "firefox"
 vnstat     = terminal .. " -e "
-musicplr   = terminal .. " -e ncmpcpp "
+screenterm   = terminal .. " -e screen "
 
 local layouts = {
     awful.layout.suit.floating,
@@ -160,11 +160,11 @@ fswidgetbg = wibox.widget.background(fswidget, "#313131")
 baticon = wibox.widget.imagebox(beautiful.widget_battery)
 batwidget = lain.widgets.bat({
     settings = function()
-        if bat_now.perc == "101" then
+        if bat_now.status == "Charging" or bat_now.status == "Full" then
             widget:set_markup(" AC ")
             baticon:set_image(beautiful.widget_ac)
             return
-        elseif tonumber(bat_now.perc) <= 5 then
+        elseif tonumber(bat_now.perc) <= 10 then
             baticon:set_image(beautiful.widget_battery_empty)
             run_once("sudo pm-suspend")
         elseif tonumber(bat_now.perc) <= 15 then
@@ -387,7 +387,7 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Show Menu
-    awful.key({ modkey }, "w", function () awful.util.spawn_with_shell(musicplr) end),
+    awful.key({ modkey }, "w", function () awful.util.spawn_with_shell(screenterm) end),
 
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()
@@ -423,8 +423,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "Return", function () awful.util.spawn(transterminal .. " -sh 100") end),
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
-    awful.key({ modkey,           }, "l",     function () awful.util.spawn("lock")    end),
-    awful.key({ modkey            }, "F10", function() awful.util.spawn("sudo shutdown -h now") end),
+    awful.key({ modkey,           }, "l",      function () awful.util.spawn("lock")    end),
+    awful.key({ modkey            }, "F10",    function () awful.util.spawn("sudo shutdown -h now") end),
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
     awful.key({ altkey,           }, "h",      function () fswidget.show(7) end),
