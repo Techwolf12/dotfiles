@@ -1,4 +1,5 @@
 #!/bin/zsh
 
 scp -B -p $1 root@ns1.droiddev.nl:/var/www/techwolf12.nl/web/tmp/.
-echo "import urllib\nprint 'http://techwolf12.nl/tmp/%s' % urllib.quote('$1')" | python
+FILE=$(echo "$1" | gawk -F/ '{print $NF}')
+echo "import urllib\nprint 'http://techwolf12.nl/tmp/%s' % urllib.quote('$FILE')" | python
