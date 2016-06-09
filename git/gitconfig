@@ -17,3 +17,5 @@
     m = checkout master
     acp = !git add -A && git commit && git push
     unadd = reset HEAD
+[merge]
+	ff = false
