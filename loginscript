@@ -1,12 +1,11 @@
 #!/bin/bash
 clear
 
-echo -e "\033[1;32m`figlet $(hostname -s)`
-
+echo -e "\033[1;32m`toilet -F border -f future $(hostname -s)`
 \033[0;35m+++++++++++++++++: \033[1;32mSystem Data \033[0;35m:+++++++++++++++++++
 \033[0;35m+ Hostname \033[1;32m= \033[0;35m`hostname -f`
-\033[0;35m+ Internal address \033[1;32m= \033[0;35m`/sbin/ifconfig | grep 'inet addr:' | sed '/127.0.0.1/d' | head -1 | cut -d: -f2 | awk '{ print $1}'`
-\033[0;35m+ External address \033[1;32m= \033[0;35m`curl -s -m 2 techwolf12.nl/ip.php | head -1`
+\033[0;35m+ Internal address \033[1;32m= \033[0;35m`/sbin/ifconfig | grep 'inet addr:' | sed '/127.0.0.1\|172.17.0.1/d' | head -1 | cut -d: -f2 | awk '{ print $1}'`
+\033[0;35m+ External address \033[1;32m= \033[0;35m`curl -s -m 2 canihazip.com/s | head -1`
 \033[0;35m+ Kernel \033[1;32m= \033[0;35m`uname -r`
 \033[0;35m+ Uptime \033[1;32m=\033[0;35m `uptime | sed 's/.*up \([^,]*\), .*/\1/'`
 \033[0;35m+ CPU \033[1;32m= \033[0;35m`cat /proc/cpuinfo | grep "model name" | head -1 | awk -F":" '/ /{print substr($2, 2)}'`
