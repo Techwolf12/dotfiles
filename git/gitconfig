@@ -1,5 +1,5 @@
 [user]
-	email = christiaan@droiddev.nl
+	email = christiaan@wolfined.com
 	name = techwolf12
         signingkey = 2F2546D8
 [push]
@@ -8,7 +8,7 @@
 	autocrlf = input
 	editor = vim
 [commit]
-	gpgsign = true
+	gpgsign = false
 [color]
     ui = true
 [alias]
