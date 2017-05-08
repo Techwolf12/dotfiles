@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Generating PDF for $@"
+pdflatex "$@" >/dev/null
+pdflatex "$@" >/dev/null
+
+rm -rf *.toc *.aux *.log
+
+echo "Done"
