@@ -8,11 +8,11 @@ alias mv='mv -i'
 # Programs
 alias vlcplay='vlc -f --no-video-title-show --no-osd --play-and-exit -q'
 alias sshproxy='ssh -Nn -D 1080'
-alias gpge='gpg --armor --encrypt --sign'
 alias gpgs='gpg --clearsign'
 alias swebsrv='python -m SimpleHTTPServer 8000'
 alias ytmp3='youtube-dl --extract-audio --audio-format mp3'
 alias s='screen'
+alias sl='sl -ae'
 # Unclear stuff
 alias please='sudo'
 alias fucking='sudo'
@@ -34,13 +34,14 @@ alias mkdir='mkdir -pv'
 alias df='df -H'
 alias vir='vim -R'
 alias intip="/sbin/ifconfig | grep 'inet addr:' | sed '/127.0.0.1/d' | cut -d: -f2 | awk '{ print $1}'"
-alias cordova="phonegap cordova"
 alias prettyjson="python -mjson.tool"
 alias apt-get="sudo apt-get"
 alias gpg="gpg2"
 alias c="clear"
+alias bc="bc -q"
 # Debian packaging
 alias dquilt="quilt ­­quiltrc=${HOME}/.quiltrc­dpkg"
+alias checkinstall="checkinstall --maintainer \"contact@techwolf12.nl\" --install=no"
 # Termart
 alias pizza='curl -L http://git.io/pizzza'
 alias pancakes='curl -L http://git.io/pancakes'
@@ -51,3 +52,8 @@ alias stopkeylog='sudo logkeys -k'
 
 # Radio stations
 alias freshuk='echo "clear\nadd tunein:station:s222437\nplay 0\nclose" | nc localhost 6600'
+
+# macOS specific stuff
+alias finder="open . -a finder"
+alias xcode="open . -a xcode"
+alias astudio="open . -a \"Android Studio\""

@@ -1,9 +1,5 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
-if [ "$TTY" = "/dev/tty1" ]
-then
-    startx
-fi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/dotfiles/zsh/oh-my-zsh
 export EDITOR="vim"
@@ -14,7 +10,7 @@ ZSH_THEME="techwolf"
 DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load?
-plugins=(git debian common-aliases encode64 npm wd ssh-agent gpg-agent)
+plugins=(git debian common-aliases encode64 npm wd ssh-agent gpg-agent git-flow-completion)
 
 source $ZSH/oh-my-zsh.sh
 compdef gpg2=gpg
@@ -45,3 +41,14 @@ export DEBMAIL DEBFULLNAME
 export DOTFILES=$HOME/dotfiles
 # Run login script
 $HOME/.loginscript
+
+
+# Fritzing
+export PATH=$PATH:Downloads/fritzing-0.9.3b.linux.AMD64/
+
+# Execute at the end to be sure you have all env variables correct.
+if [ "$TTY" = "/dev/tty1" ]
+then
+    startx
+fi
+
