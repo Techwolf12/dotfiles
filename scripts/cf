@@ -6,7 +6,7 @@ TARGET=/tmp/screenshots/$IMAGE
 scrot -s $TARGET
 OUT=$?
 if [ $OUT -eq 0 ]; then
-    scp -B -q -p $TARGET root@ns1.droiddev.nl:/var/www/i.techwolf12.nl/web/.
+    scp -B -q -p $TARGET techwolf12_itechwolf@a.techwolf12-1.wolfined.net:/web/.
     notify "Successfully uploaded" http://$URL/$IMAGE
 
     echo -n http://$URL/$IMAGE | xclip -selection primary     &>/dev/null
