@@ -41,7 +41,7 @@ function run_once(cmd)
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 run_once("mopidy");
-run_once("conky --font=\"It wasn't me:size=10\" -qdc $HOME/.config/conky/clockrc; conky --font=\"Hack:size=9\" -qdc $HOME/.config/conky/tasksrc");
+-- awful.util.spawn_with_shell("pkill conky && conky --font=\"It wasn't me:size=10\" -qdc $HOME/.config/conky/clockrc; conky --font=\"Hack:size=9\" -qdc $HOME/.config/conky/tasksrc");
 -- }}}
 
 -- {{{ Variable definitions
@@ -568,7 +568,7 @@ awful.rules.rules = {
     { rule = { class = "xterm" },
           properties = { opacity = 0.99 } },
 
-    { rule = { class = "pinentry" },
+    { rule = { class = "Pinentry" },
           properties = { floating = true } },
 
     { rule = { class = "Dialog" },
@@ -639,3 +639,4 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
       end)
 end
 -- }}}
+run_once("/home/techwolf12/scripts/autorandr -c");
